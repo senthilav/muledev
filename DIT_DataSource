@@ -1,0 +1,614 @@
+Info: begin batch execution
+Info: number of jobs: 37
+--------------------------------------------------------------------------------
+Command #4
+Statement: CREATE OR REPLACE WRAPPER CUSTOM ds_340bcrosswalk_excel
+    FOLDER = '/base views/dit/non retail'
+    DATASOURCENAME=ds_340bcrosswalk_excel
+    PARAMETERS (
+      'Type of file' = 'Excel 2007 or later (*.xlsx)',
+      'File location' = ROUTE LOCAL 'LocalConnection' '/intgfs/IMS/DIT/SupplementFiles/@{filename}',
+      'Extract data from all sheets' = false,
+      'Extract sheet name as a new column' = false,
+      'Has headers' = true,
+      'Stream tuples' = true
+    )
+    OUTPUTSCHEMA (
+        bsubcatimsoutlet = 'BSubcat_IMS_Outlet' : 'java.lang.Integer' (OPT) SORTABLE,
+        bsubcatoutletcat = 'BSubcat_Outlet_Cat' : 'java.lang.String' (OPT) SORTABLE,
+        bsubcatoutletname = 'BSubcat_Outlet_Name' : 'java.lang.String' (OPT) SORTABLE,
+        bsubcatoutletaddress1 = 'BSubcat_Outlet_Address1' : 'java.lang.String' (OPT) SORTABLE,
+        bsubcat_outlet_address2 = 'BSubcat_Outlet_Address2' : 'java.lang.String' (OPT) SORTABLE,
+        bsubcatoutletcity = 'BSubcat_Outlet_City' : 'java...
+QUERY ERROR
+
+--------------------------------------------------------------------------------
+Command #6
+Statement: CREATE OR REPLACE WRAPPER CUSTOM ds_cross_channel_excel
+    FOLDER = '/base views/dit/non retail'
+    DATASOURCENAME=ds_cross_channel_excel
+    PARAMETERS (
+      'Type of file' = 'Excel 2007 or later (*.xlsx)',
+      'File location' = ROUTE LOCAL 'LocalConnection' '/intgfs/IMS/DIT/SupplementFiles/@{filename}',
+      'Extract data from all sheets' = true,
+      'Extract sheet name as a new column' = true,
+      'Has headers' = true,
+      'Stream tuples' = true
+    )
+    OUTPUTSCHEMA (
+        outlet = 'Outlet' : 'java.lang.Integer' (OPT) SORTABLE,
+        outletname = 'Outlet Name' : 'java.lang.String' (OPT) SORTABLE,
+        outletaddress = 'Outlet Address' : 'java.lang.String' (OPT) SORTABLE,
+        outletcity = 'Outlet City' : 'java.lang.String' (OPT) SORTABLE,
+        zip = 'Zip' : 'java.lang.Integer' (OPT) SORTABLE,
+        state = 'State' : 'java.lang.String' (OPT) SORTABLE,
+        territory = 'Territory' : 'java.lang.String' (OPT) SORTABLE,
+        territoryname = 'Territory ...
+QUERY ERROR
+
+--------------------------------------------------------------------------------
+Command #8
+Statement: CREATE OR REPLACE WRAPPER CUSTOM ds_delta_territory_details_excel
+    FOLDER = '/base views/dit/retail'
+    DATASOURCENAME=ds_delta_territory_details_excel
+    PARAMETERS (
+      'Type of file' = 'Excel 2007 or later (*.xlsx)',
+      'File location' = ROUTE LOCAL 'LocalConnection' '/intgfs/IMS/DIT/SupplementFiles/@{filename}',
+      'Extract data from all sheets' = false,
+      'Extract sheet name as a new column' = false,
+      'Has headers' = true,
+      'Stream tuples' = true
+    )
+    OUTPUTSCHEMA (
+        zip = 'ZIP' : 'java.lang.Integer' (OPT) SORTABLE,
+        reg = 'REG' : 'java.lang.String' (OPT) SORTABLE,
+        territoryid = 'Terr' : 'java.lang.String' (OPT) SORTABLE,
+        terrname = 'Terr Name' : 'java.lang.String' (OPT) SORTABLE,
+        productcode = 'Product Code' : 'java.lang.String' (OPT) SORTABLE,
+        productname = 'Product Name' : 'java.lang.String' (OPT) SORTABLE,
+        monthdate = 'Month Date' : 'java.lang.String' (OPT) SORTABLE,
+        deltatrx = 'Delt...
+QUERY ERROR
+
+--------------------------------------------------------------------------------
+Command #10
+Statement: CREATE OR REPLACE WRAPPER CUSTOM ds_ltcxpo_excel
+    FOLDER = '/base views/dit/non retail'
+    DATASOURCENAME=ds_ltcxpo_excel
+    PARAMETERS (
+      'Type of file' = 'Excel 2007 or later (*.xlsx)',
+      'File location' = ROUTE LOCAL 'LocalConnection' '/intgfs/IMS/DIT/SupplementFiles/@{filename}',
+      'Extract data from all sheets' = false,
+      'Extract sheet name as a new column' = true,
+      'Has headers' = true,
+      'Stream tuples' = true
+    )
+    OUTPUTSCHEMA (
+        outlet = 'OUTLET #' : 'java.lang.Integer' (OPT) SORTABLE,
+        extdcatgcd = 'EXTD_CATG_CD' : 'java.lang.String' (OPT) SORTABLE,
+        storenm = 'STORE_NM' : 'java.lang.String' (OPT) SORTABLE,
+        addrtxt = 'ADDR_TXT' : 'java.lang.String' (OPT) SORTABLE,
+        citynm = 'CITY_NM' : 'java.lang.String' (OPT) SORTABLE,
+        stcd = 'ST_CD' : 'java.lang.String' (OPT) SORTABLE,
+        pstlcd = 'PSTL_CD' : 'java.lang.Integer' (OPT) SORTABLE,
+        sheetname = 'sheet_name' : 'java.lang.String' (OPT) SO...
+QUERY ERROR
+
+--------------------------------------------------------------------------------
+Command #12
+Statement: CREATE OR REPLACE WRAPPER CUSTOM ds_mail_service_excel
+    FOLDER = '/base views/dit/non retail'
+    DATASOURCENAME=ds_mail_service_excel
+    PARAMETERS (
+      'Type of file' = 'Excel 2007 or later (*.xlsx)',
+      'File location' = ROUTE LOCAL 'LocalConnection' '/intgfs/IMS/DIT/SupplementFiles/@{filename}',
+      'Extract data from all sheets' = false,
+      'Extract sheet name as a new column' = false,
+      'Has headers' = true,
+      'Stream tuples' = true
+    )
+    OUTPUTSCHEMA (
+        reportingstatuschange = 'Reporting
+Status Change' : 'java.lang.String' (OPT) SORTABLE,
+        outlet = 'Outlet #' : 'java.lang.Integer' (OPT) SORTABLE,
+        active = 'Active' : 'java.lang.String' (OPT) SORTABLE,
+        pre = 'PRE' : 'java.lang.Integer' (OPT) SORTABLE,
+        name = 'Name' : 'java.lang.String' (OPT) SORTABLE,
+        address = 'Address' : 'java.lang.String' (OPT) SORTABLE,
+        city = 'City' : 'java.lang.String' (OPT) SORTABLE,
+        state = 'State' : 'java.lang.String...
+QUERY ERROR
+
+--------------------------------------------------------------------------------
+Command #14
+Statement: CREATE OR REPLACE WRAPPER CUSTOM ds_outlet_change_log_excel
+    FOLDER = '/base views/dit/non retail'
+    DATASOURCENAME=ds_outlet_change_log_excel
+    PARAMETERS (
+      'Type of file' = 'Excel 2007 or later (*.xlsx)',
+      'File location' = ROUTE LOCAL 'LocalConnection' '/intgfs/IMS/DIT/SupplementFiles/@{filename}',
+      'Extract data from all sheets' = false,
+      'Extract sheet name as a new column' = false,
+      'Has headers' = true,
+      'Stream tuples' = true
+    )
+    OUTPUTSCHEMA (
+        outletnumber = 'Outlet Number' : 'java.lang.Integer' (OPT) SORTABLE,
+        outletname = 'Outlet Name' : 'java.lang.String' (OPT) SORTABLE,
+        outletaddress = 'Outlet Address' : 'java.lang.String' (OPT) SORTABLE,
+        outletcity = 'Outlet City' : 'java.lang.String' (OPT) SORTABLE,
+        outletstate = 'Outlet State' : 'java.lang.String' (OPT) SORTABLE,
+        extendedcat = 'Extended Cat' : 'java.lang.String' (OPT) SORTABLE,
+        actioncode = 'Action Code' : 'java.lang.Stri...
+QUERY ERROR
+
+--------------------------------------------------------------------------------
+Command #16
+Statement: CREATE OR REPLACE WRAPPER CUSTOM ds_outlet_desc_lookup_excel
+    FOLDER = '/base views/dit/non retail'
+    DATASOURCENAME=ds_outlet_desc_lookup_excel
+    PARAMETERS (
+      'Type of file' = 'Excel 2007 or later (*.xlsx)',
+      'File location' = ROUTE LOCAL 'LocalConnection' '/intgfs/IMS/DIT/SupplementFiles/@{filename}',
+      'Extract data from all sheets' = false,
+      'Extract sheet name as a new column' = true,
+      'Has headers' = true,
+      'Stream tuples' = true
+    )
+    OUTPUTSCHEMA (
+        actioncode = 'ActionCode' : 'java.lang.String' (OPT) SORTABLE,
+        description = 'Description' : 'java.lang.String' (OPT) SORTABLE,
+        sheetname = 'sheet_name' : 'java.lang.String' (OPT) SORTABLE,
+        filename = 'FILENAME' : 'java.lang.String' (OBL) (DEFAULTVALUE='Outlet Change Log and Prescriber Change Log Layouts.xlsx')  EXTERN NOT SORTABLE NOT UPDATEABLE
+    )
+QUERY ERROR
+
+--------------------------------------------------------------------------------
+Command #18
+Statement: CREATE OR REPLACE WRAPPER CUSTOM ds_presc_change_log_desc_excel
+    FOLDER = '/base views/dit/retail'
+    DATASOURCENAME=ds_presc_change_log_desc_excel
+    PARAMETERS (
+      'Type of file' = 'Excel 2007 or later (*.xlsx)',
+      'File location' = ROUTE LOCAL 'LocalConnection' '/intgfs/IMS/DIT/SupplementFiles/OutputFiles/Prescriber Change Log Description.xlsx',
+      'Extract data from all sheets' = false,
+      'Extract sheet name as a new column' = false,
+      'Has headers' = true,
+      'Stream tuples' = true
+    )
+    OUTPUTSCHEMA (
+        actioncode = 'ActionCode' : 'java.lang.String' (OPT) SORTABLE,
+        description = 'Description' : 'java.lang.String' (OPT) SORTABLE
+    )
+QUERY ERROR
+
+--------------------------------------------------------------------------------
+Command #22
+Statement: CREATE OR REPLACE WRAPPER CUSTOM ds_restricted_outlets_excel
+    FOLDER = '/base views/dit/non retail'
+    DATASOURCENAME=ds_restricted_outlets_excel
+    PARAMETERS (
+      'Type of file' = 'Excel 2007 or later (*.xlsx)',
+      'File location' = ROUTE LOCAL 'LocalConnection' '/intgfs/IMS/DIT/SupplementFiles/@{filename}',
+      'Extract data from all sheets' = false,
+      'Extract sheet name as a new column' = false,
+      'Has headers' = true,
+      'Stream tuples' = true
+    )
+    OUTPUTSCHEMA (
+        outletnumber = 'OUTLET_NUMBER' : 'java.lang.Integer' (OPT) SORTABLE,
+        subcategory = 'SUB_CATEGORY' : 'java.lang.String' (OPT) SORTABLE,
+        name = 'NAME' : 'java.lang.String' (OPT) SORTABLE,
+        address = 'ADDRESS' : 'java.lang.String' (OPT) SORTABLE,
+        city = 'CITY' : 'java.lang.String' (OPT) SORTABLE,
+        state = 'STATE' : 'java.lang.String' (OPT) SORTABLE,
+        zipcode = 'ZIP_CODE' : 'java.lang.Integer' (OPT) SORTABLE,
+        activeinactive = 'ACTIVE_IN...
+QUERY ERROR
+
+--------------------------------------------------------------------------------
+Command #24
+Statement: CREATE OR REPLACE WRAPPER CUSTOM ds_soc_codedesc_lookup_excel
+    FOLDER = '/base views/dit/non retail/soc report'
+    DATASOURCENAME=ds_soc_codedesc_lookup_excel
+    PARAMETERS (
+      'Type of file' = 'Excel 2007 or later (*.xlsx)',
+      'File location' = ROUTE LOCAL 'LocalConnection' '/intgfs/IMS/DIT/SupplementFiles/OutputFiles/SOCIndicators.xlsx',
+      'Worksheet' = 'Indicators',
+      'Extract data from all sheets' = false,
+      'Extract sheet name as a new column' = true,
+      'Has headers' = true,
+      'Stream tuples' = true
+    )
+    OUTPUTSCHEMA (
+        code = 'Code' : 'java.lang.String' (OPT) SORTABLE,
+        description = 'Desc' : 'java.lang.String' (OPT) SORTABLE,
+        sheetname = 'sheet_name' : 'java.lang.String' (OPT) SORTABLE
+    )
+QUERY ERROR
+
+--------------------------------------------------------------------------------
+Command #26
+Statement: CREATE OR REPLACE WRAPPER CUSTOM ds_soc_details_report_excel
+    FOLDER = '/base views/dit/non retail/soc report'
+    DATASOURCENAME=ds_soc_details_report_excel
+    PARAMETERS (
+      'Type of file' = 'Excel 2007 or later (*.xlsx)',
+      'File location' = ROUTE LOCAL 'LocalConnection' '/intgfs/IMS/DIT/SupplementFiles/@{filename}',
+      'Extract data from all sheets' = false,
+      'Extract sheet name as a new column' = true,
+      'Has headers' = true,
+      'Stream tuples' = true
+    )
+    OUTPUTSCHEMA (
+        code = 'Code' : 'java.lang.String' (OPT) SORTABLE,
+        state = 'State' : 'java.lang.String' (OPT) SORTABLE,
+        city = 'City' : 'java.lang.String' (OPT) SORTABLE,
+        outletname = 'Outlet name' : 'java.lang.String' (OPT) SORTABLE,
+        oldoutlet = 'Old Outlet' : 'java.lang.Integer' (OPT) SORTABLE,
+        oldsubcat = 'Old Subcat' : 'java.lang.String' (OPT) SORTABLE,
+        newoutlet = 'New Outlet' : 'java.lang.Integer' (OPT) SORTABLE,
+        newsubcat = 'New...
+QUERY ERROR
+
+--------------------------------------------------------------------------------
+Command #28
+Statement: CREATE OR REPLACE WRAPPER CUSTOM ds_subcatcode_booklet_excel
+    FOLDER = '/base views/dit/non retail'
+    DATASOURCENAME=ds_subcatcode_booklet_excel
+    PARAMETERS (
+      'Type of file' = 'Excel 2007 or later (*.xlsx)',
+      'File location' = ROUTE LOCAL 'LocalConnection' '/intgfs/IMS/DIT/SupplementFiles/OutputFiles/Gilead DDD Outlet Subcategory Codes Booklet.xlsx',
+      'Worksheet' = 'SUBCAT',
+      'Extract data from all sheets' = false,
+      'Extract sheet name as a new column' = false,
+      'Start cell' = 'A11',
+      'Has headers' = true,
+      'Stream tuples' = true
+    )
+    OUTPUTSCHEMA (
+        code = 'CODE' : 'java.lang.String' (OPT) SORTABLE,
+        outletdescription = 'OUTLET DESCRIPTION' : 'java.lang.String' (OPT) SORTABLE,
+        category = 'CATEGORY' : 'java.lang.String' (OPT) SORTABLE,
+        outletdefinition = 'OUTLET DEFINITION' : 'java.lang.String' (OPT) SORTABLE,
+        outletexample = 'OUTLET EXAMPLE' : 'java.lang.String' (OPT) SORTABLE,
+        classoft...
+QUERY ERROR
+
+
+
+Command: CREATE OR REPLACE WRAPPER CUSTOM ds_340bcrosswalk_excel
+    FOLDER = '/base views/dit/non retail'
+    DATASOURCENAME=ds_340bcrosswalk_excel
+    PARAMETERS (
+      'Type of file' = 'Excel 2007 or later (*.xlsx)',
+      'File location' = ROUTE LOCAL 'LocalConnection' '/intgfs/IMS/DIT/SupplementFiles/@{filename}',
+      'Extract data from all sheets' = false,
+      'Extract sheet name as a new column' = false,
+      'Has headers' = true,
+      'Stream tuples' = true
+    )
+    OUTPUTSCHEMA (
+        bsubcatimsoutlet = 'BSubcat_IMS_Outlet' : 'java.lang.Integer' (OPT) SORTABLE,
+        bsubcatoutletcat = 'BSubcat_Outlet_Cat' : 'java.lang.String' (OPT) SORTABLE,
+        bsubcatoutletname = 'BSubcat_Outlet_Name' : 'java.lang.String' (OPT) SORTABLE,
+        bsubcatoutletaddress1 = 'BSubcat_Outlet_Address1' : 'java.lang.String' (OPT) SORTABLE,
+        bsubcat_outlet_address2 = 'BSubcat_Outlet_Address2' : 'java.lang.String' (OPT) SORTABLE,
+        bsubcatoutletcity = 'BSubcat_Outlet_City' : 'java.lang.String' (OPT) SORTABLE,
+        bsubcat_outlet_state = 'BSubcat_Outlet_State' : 'java.lang.String' (OPT) SORTABLE,
+        bsubcat_outlet_zip = 'BSubcat_Outlet_Zip' : 'java.lang.Integer' (OPT) SORTABLE,
+        dsubcat_ims_outlet = 'DSubcat_IMS_Outlet' : 'java.lang.Integer' (OPT) SORTABLE,
+        dsubcat_outlet_cat = 'DSubcat_Outlet_Cat' : 'java.lang.String' (OPT) SORTABLE,
+        dsubcat_outlet_name = 'DSubcat_Outlet_Name' : 'java.lang.String' (OPT) SORTABLE,
+        dsubcat_outlet_address1 = 'DSubcat_Outlet_Address1' : 'java.lang.String' (OPT) SORTABLE,
+        dsubcat_outlet_address2 = 'DSubcat_Outlet_Address2' : 'java.lang.String' (OPT) SORTABLE,
+        dsubcat_outlet_city = 'DSubcat_Outlet_City' : 'java.lang.String' (OPT) SORTABLE,
+        dsubcat_outlet_state = 'DSubcat_Outlet_State' : 'java.lang.String' (OPT) SORTABLE,
+        dsubcat_outlet_zip = 'DSubcat_Outlet_Zip' : 'java.lang.Integer' (OPT) SORTABLE,
+        filename = 'FILENAME' : 'java.lang.String' (OBL) (DEFAULTVALUE='BtoDSubcatCrosswalk_Weekly_(Week#38) 09-22-17.xlsx')  EXTERN NOT SORTABLE NOT UPDATEABLE
+    )
+ERROR:
+
+Error creating association: destination folder '/base views/dit/non retail' not found
+
+Command: CREATE OR REPLACE WRAPPER CUSTOM ds_cross_channel_excel
+    FOLDER = '/base views/dit/non retail'
+    DATASOURCENAME=ds_cross_channel_excel
+    PARAMETERS (
+      'Type of file' = 'Excel 2007 or later (*.xlsx)',
+      'File location' = ROUTE LOCAL 'LocalConnection' '/intgfs/IMS/DIT/SupplementFiles/@{filename}',
+      'Extract data from all sheets' = true,
+      'Extract sheet name as a new column' = true,
+      'Has headers' = true,
+      'Stream tuples' = true
+    )
+    OUTPUTSCHEMA (
+        outlet = 'Outlet' : 'java.lang.Integer' (OPT) SORTABLE,
+        outletname = 'Outlet Name' : 'java.lang.String' (OPT) SORTABLE,
+        outletaddress = 'Outlet Address' : 'java.lang.String' (OPT) SORTABLE,
+        outletcity = 'Outlet City' : 'java.lang.String' (OPT) SORTABLE,
+        zip = 'Zip' : 'java.lang.Integer' (OPT) SORTABLE,
+        state = 'State' : 'java.lang.String' (OPT) SORTABLE,
+        territory = 'Territory' : 'java.lang.String' (OPT) SORTABLE,
+        territoryname = 'Territory Name' : 'java.lang.String' (OPT) SORTABLE,
+        market = 'MARKET' : 'java.lang.String' (OPT) SORTABLE,
+        cmf7 = 'CMF7' : 'java.lang.Integer' (OPT) SORTABLE,
+        productname = 'Product Name' : 'java.lang.String' (OPT) SORTABLE,
+        tqtydistribution = 'TQty Distribution' : 'java.lang.String' (OPT) SORTABLE,
+        sheetname = 'sheet_name' : 'java.lang.String' (OPT) SORTABLE,
+        filename = 'FILENAME' : 'java.lang.String' (OBL) (DEFAULTVALUE='Gilead Custom Cross Channel Change Guidance Q1_04-01-2017.xlsx')  EXTERN NOT SORTABLE NOT UPDATEABLE
+    )
+ERROR:
+
+Error creating association: destination folder '/base views/dit/non retail' not found
+
+Command: CREATE OR REPLACE WRAPPER CUSTOM ds_delta_territory_details_excel
+    FOLDER = '/base views/dit/retail'
+    DATASOURCENAME=ds_delta_territory_details_excel
+    PARAMETERS (
+      'Type of file' = 'Excel 2007 or later (*.xlsx)',
+      'File location' = ROUTE LOCAL 'LocalConnection' '/intgfs/IMS/DIT/SupplementFiles/@{filename}',
+      'Extract data from all sheets' = false,
+      'Extract sheet name as a new column' = false,
+      'Has headers' = true,
+      'Stream tuples' = true
+    )
+    OUTPUTSCHEMA (
+        zip = 'ZIP' : 'java.lang.Integer' (OPT) SORTABLE,
+        reg = 'REG' : 'java.lang.String' (OPT) SORTABLE,
+        territoryid = 'Terr' : 'java.lang.String' (OPT) SORTABLE,
+        terrname = 'Terr Name' : 'java.lang.String' (OPT) SORTABLE,
+        productcode = 'Product Code' : 'java.lang.String' (OPT) SORTABLE,
+        productname = 'Product Name' : 'java.lang.String' (OPT) SORTABLE,
+        monthdate = 'Month Date' : 'java.lang.String' (OPT) SORTABLE,
+        deltatrx = 'Delta Trx' : 'java.lang.Float' (OPT) SORTABLE,
+        franchise = 'Franchise' : 'java.lang.String' (OPT) SORTABLE,
+        filename = 'FILENAME' : 'java.lang.String' (OBL) (DEFAULTVALUE='Delta Territory Details File 10-10-2017.xlsx')  EXTERN NOT SORTABLE NOT UPDATEABLE
+    )
+ERROR:
+
+Error creating association: destination folder '/base views/dit/retail' not found
+
+Command: CREATE OR REPLACE WRAPPER CUSTOM ds_ltcxpo_excel
+    FOLDER = '/base views/dit/non retail'
+    DATASOURCENAME=ds_ltcxpo_excel
+    PARAMETERS (
+      'Type of file' = 'Excel 2007 or later (*.xlsx)',
+      'File location' = ROUTE LOCAL 'LocalConnection' '/intgfs/IMS/DIT/SupplementFiles/@{filename}',
+      'Extract data from all sheets' = false,
+      'Extract sheet name as a new column' = true,
+      'Has headers' = true,
+      'Stream tuples' = true
+    )
+    OUTPUTSCHEMA (
+        outlet = 'OUTLET #' : 'java.lang.Integer' (OPT) SORTABLE,
+        extdcatgcd = 'EXTD_CATG_CD' : 'java.lang.String' (OPT) SORTABLE,
+        storenm = 'STORE_NM' : 'java.lang.String' (OPT) SORTABLE,
+        addrtxt = 'ADDR_TXT' : 'java.lang.String' (OPT) SORTABLE,
+        citynm = 'CITY_NM' : 'java.lang.String' (OPT) SORTABLE,
+        stcd = 'ST_CD' : 'java.lang.String' (OPT) SORTABLE,
+        pstlcd = 'PSTL_CD' : 'java.lang.Integer' (OPT) SORTABLE,
+        sheetname = 'sheet_name' : 'java.lang.String' (OPT) SORTABLE,
+        filename = 'FILENAME' : 'java.lang.String' (OBL) (DEFAULTVALUE='LTCXpoSample-MHAMarch2016.xlsx')  EXTERN NOT SORTABLE NOT UPDATEABLE
+    )
+ERROR:
+
+Error creating association: destination folder '/base views/dit/non retail' not found
+
+Command: CREATE OR REPLACE WRAPPER CUSTOM ds_mail_service_excel
+    FOLDER = '/base views/dit/non retail'
+    DATASOURCENAME=ds_mail_service_excel
+    PARAMETERS (
+      'Type of file' = 'Excel 2007 or later (*.xlsx)',
+      'File location' = ROUTE LOCAL 'LocalConnection' '/intgfs/IMS/DIT/SupplementFiles/@{filename}',
+      'Extract data from all sheets' = false,
+      'Extract sheet name as a new column' = false,
+      'Has headers' = true,
+      'Stream tuples' = true
+    )
+    OUTPUTSCHEMA (
+        reportingstatuschange = 'Reporting
+Status Change' : 'java.lang.String' (OPT) SORTABLE,
+        outlet = 'Outlet #' : 'java.lang.Integer' (OPT) SORTABLE,
+        active = 'Active' : 'java.lang.String' (OPT) SORTABLE,
+        pre = 'PRE' : 'java.lang.Integer' (OPT) SORTABLE,
+        name = 'Name' : 'java.lang.String' (OPT) SORTABLE,
+        address = 'Address' : 'java.lang.String' (OPT) SORTABLE,
+        city = 'City' : 'java.lang.String' (OPT) SORTABLE,
+        state = 'State' : 'java.lang.String' (OPT) SORTABLE,
+        zip = 'Zip' : 'java.lang.Integer' (OPT) SORTABLE,
+        subcat = 'Sub Cat' : 'java.lang.String' (OPT) SORTABLE,
+        xpolatestdate = 'XPO LatestDate' : 'java.lang.String' (OPT) SORTABLE,
+        filename = 'FILENAME' : 'java.lang.String' (OBL) (DEFAULTVALUE='MAIL SERVICE SUPPLIER LISTING - MAY 2017 DATA MONTH.xlsx')  EXTERN NOT SORTABLE NOT UPDATEABLE
+    )
+ERROR:
+
+Error creating association: destination folder '/base views/dit/non retail' not found
+
+Command: CREATE OR REPLACE WRAPPER CUSTOM ds_outlet_change_log_excel
+    FOLDER = '/base views/dit/non retail'
+    DATASOURCENAME=ds_outlet_change_log_excel
+    PARAMETERS (
+      'Type of file' = 'Excel 2007 or later (*.xlsx)',
+      'File location' = ROUTE LOCAL 'LocalConnection' '/intgfs/IMS/DIT/SupplementFiles/@{filename}',
+      'Extract data from all sheets' = false,
+      'Extract sheet name as a new column' = false,
+      'Has headers' = true,
+      'Stream tuples' = true
+    )
+    OUTPUTSCHEMA (
+        outletnumber = 'Outlet Number' : 'java.lang.Integer' (OPT) SORTABLE,
+        outletname = 'Outlet Name' : 'java.lang.String' (OPT) SORTABLE,
+        outletaddress = 'Outlet Address' : 'java.lang.String' (OPT) SORTABLE,
+        outletcity = 'Outlet City' : 'java.lang.String' (OPT) SORTABLE,
+        outletstate = 'Outlet State' : 'java.lang.String' (OPT) SORTABLE,
+        extendedcat = 'Extended Cat' : 'java.lang.String' (OPT) SORTABLE,
+        actioncode = 'Action Code' : 'java.lang.String' (OPT) SORTABLE,
+        crossreferencetooutletnumber = '''Cross Reference To'' Outlet Number' : 'java.lang.Integer' (OPT) SORTABLE,
+        outletchangelogfilename = 'FILENAME' : 'java.lang.String' (OBL) (DEFAULTVALUE='Gilead DDD Weekly Outlet Change Log (week#12) 03-24-17.xlsx')  EXTERN NOT SORTABLE NOT UPDATEABLE
+    )
+ERROR:
+
+Error creating association: destination folder '/base views/dit/non retail' not found
+
+Command: CREATE OR REPLACE WRAPPER CUSTOM ds_outlet_desc_lookup_excel
+    FOLDER = '/base views/dit/non retail'
+    DATASOURCENAME=ds_outlet_desc_lookup_excel
+    PARAMETERS (
+      'Type of file' = 'Excel 2007 or later (*.xlsx)',
+      'File location' = ROUTE LOCAL 'LocalConnection' '/intgfs/IMS/DIT/SupplementFiles/@{filename}',
+      'Extract data from all sheets' = false,
+      'Extract sheet name as a new column' = true,
+      'Has headers' = true,
+      'Stream tuples' = true
+    )
+    OUTPUTSCHEMA (
+        actioncode = 'ActionCode' : 'java.lang.String' (OPT) SORTABLE,
+        description = 'Description' : 'java.lang.String' (OPT) SORTABLE,
+        sheetname = 'sheet_name' : 'java.lang.String' (OPT) SORTABLE,
+        filename = 'FILENAME' : 'java.lang.String' (OBL) (DEFAULTVALUE='Outlet Change Log and Prescriber Change Log Layouts.xlsx')  EXTERN NOT SORTABLE NOT UPDATEABLE
+    )
+ERROR:
+
+Error creating association: destination folder '/base views/dit/non retail' not found
+
+Command: CREATE OR REPLACE WRAPPER CUSTOM ds_presc_change_log_desc_excel
+    FOLDER = '/base views/dit/retail'
+    DATASOURCENAME=ds_presc_change_log_desc_excel
+    PARAMETERS (
+      'Type of file' = 'Excel 2007 or later (*.xlsx)',
+      'File location' = ROUTE LOCAL 'LocalConnection' '/intgfs/IMS/DIT/SupplementFiles/OutputFiles/Prescriber Change Log Description.xlsx',
+      'Extract data from all sheets' = false,
+      'Extract sheet name as a new column' = false,
+      'Has headers' = true,
+      'Stream tuples' = true
+    )
+    OUTPUTSCHEMA (
+        actioncode = 'ActionCode' : 'java.lang.String' (OPT) SORTABLE,
+        description = 'Description' : 'java.lang.String' (OPT) SORTABLE
+    )
+ERROR:
+
+Error creating association: destination folder '/base views/dit/retail' not found
+
+Command: CREATE OR REPLACE WRAPPER CUSTOM ds_restricted_outlets_excel
+    FOLDER = '/base views/dit/non retail'
+    DATASOURCENAME=ds_restricted_outlets_excel
+    PARAMETERS (
+      'Type of file' = 'Excel 2007 or later (*.xlsx)',
+      'File location' = ROUTE LOCAL 'LocalConnection' '/intgfs/IMS/DIT/SupplementFiles/@{filename}',
+      'Extract data from all sheets' = false,
+      'Extract sheet name as a new column' = false,
+      'Has headers' = true,
+      'Stream tuples' = true
+    )
+    OUTPUTSCHEMA (
+        outletnumber = 'OUTLET_NUMBER' : 'java.lang.Integer' (OPT) SORTABLE,
+        subcategory = 'SUB_CATEGORY' : 'java.lang.String' (OPT) SORTABLE,
+        name = 'NAME' : 'java.lang.String' (OPT) SORTABLE,
+        address = 'ADDRESS' : 'java.lang.String' (OPT) SORTABLE,
+        city = 'CITY' : 'java.lang.String' (OPT) SORTABLE,
+        state = 'STATE' : 'java.lang.String' (OPT) SORTABLE,
+        zipcode = 'ZIP_CODE' : 'java.lang.Integer' (OPT) SORTABLE,
+        activeinactive = 'ACTIVE_INACTIVE' : 'java.lang.String' (OPT) SORTABLE,
+        status = 'Status' : 'java.lang.String' (OPT) SORTABLE,
+        changenote = 'Change_note' : 'java.lang.String' (OPT) SORTABLE,
+        filename = 'FILENAME' : 'java.lang.String' (OBL) (DEFAULTVALUE='Combined Restricted Outlets 07-31-17.xlsx')  EXTERN NOT SORTABLE NOT UPDATEABLE
+    )
+ERROR:
+
+Error creating association: destination folder '/base views/dit/non retail' not found
+
+Command: CREATE OR REPLACE WRAPPER CUSTOM ds_soc_codedesc_lookup_excel
+    FOLDER = '/base views/dit/non retail/soc report'
+    DATASOURCENAME=ds_soc_codedesc_lookup_excel
+    PARAMETERS (
+      'Type of file' = 'Excel 2007 or later (*.xlsx)',
+      'File location' = ROUTE LOCAL 'LocalConnection' '/intgfs/IMS/DIT/SupplementFiles/OutputFiles/SOCIndicators.xlsx',
+      'Worksheet' = 'Indicators',
+      'Extract data from all sheets' = false,
+      'Extract sheet name as a new column' = true,
+      'Has headers' = true,
+      'Stream tuples' = true
+    )
+    OUTPUTSCHEMA (
+        code = 'Code' : 'java.lang.String' (OPT) SORTABLE,
+        description = 'Desc' : 'java.lang.String' (OPT) SORTABLE,
+        sheetname = 'sheet_name' : 'java.lang.String' (OPT) SORTABLE
+    )
+ERROR:
+
+Error creating association: destination folder '/base views/dit/non retail/soc report' not found
+
+Command: CREATE OR REPLACE WRAPPER CUSTOM ds_soc_details_report_excel
+    FOLDER = '/base views/dit/non retail/soc report'
+    DATASOURCENAME=ds_soc_details_report_excel
+    PARAMETERS (
+      'Type of file' = 'Excel 2007 or later (*.xlsx)',
+      'File location' = ROUTE LOCAL 'LocalConnection' '/intgfs/IMS/DIT/SupplementFiles/@{filename}',
+      'Extract data from all sheets' = false,
+      'Extract sheet name as a new column' = true,
+      'Has headers' = true,
+      'Stream tuples' = true
+    )
+    OUTPUTSCHEMA (
+        code = 'Code' : 'java.lang.String' (OPT) SORTABLE,
+        state = 'State' : 'java.lang.String' (OPT) SORTABLE,
+        city = 'City' : 'java.lang.String' (OPT) SORTABLE,
+        outletname = 'Outlet name' : 'java.lang.String' (OPT) SORTABLE,
+        oldoutlet = 'Old Outlet' : 'java.lang.Integer' (OPT) SORTABLE,
+        oldsubcat = 'Old Subcat' : 'java.lang.String' (OPT) SORTABLE,
+        newoutlet = 'New Outlet' : 'java.lang.Integer' (OPT) SORTABLE,
+        newsubcat = 'New Subcat' : 'java.lang.String' (OPT) SORTABLE,
+        oldtype = 'Old Type' : 'java.lang.String' (OPT) SORTABLE,
+        newtype = 'New Type' : 'java.lang.String' (OPT) SORTABLE,
+        additionalinfo = 'Additional Info' : 'java.lang.String' (OPT) SORTABLE,
+        datamonth = 'Data Month' : 'java.lang.Integer' (OPT) SORTABLE,
+        dataweek = 'Data Week' : 'java.lang.Integer' (OPT) SORTABLE,
+        oldname = 'Old Name' : 'java.lang.String' (OPT) SORTABLE,
+        oldaddress = 'Old Address' : 'java.lang.String' (OPT) SORTABLE,
+        oldcity = 'Old City' : 'java.lang.String' (OPT) SORTABLE,
+        oldstate = 'Old State' : 'java.lang.String' (OPT) SORTABLE,
+        oldzip = 'Old Zip' : 'java.lang.Integer' (OPT) SORTABLE,
+        newname = 'New Name' : 'java.lang.String' (OPT) SORTABLE,
+        newaddress = 'New Address' : 'java.lang.String' (OPT) SORTABLE,
+        newcity = 'New City' : 'java.lang.String' (OPT) SORTABLE,
+        newstate = 'New State' : 'java.lang.String' (OPT) SORTABLE,
+        newzip = 'New Zip' : 'java.lang.Integer' (OPT) SORTABLE,
+        sheetname = 'sheet_name' : 'java.lang.String' (OPT) SORTABLE,
+        filename = 'FILENAME' : 'java.lang.String' (OBL) (DEFAULTVALUE='SignificantOutletChange(SOC)Rpt01-01-2017.xlsx')  EXTERN NOT SORTABLE NOT UPDATEABLE
+    )
+ERROR:
+
+Error creating association: destination folder '/base views/dit/non retail/soc report' not found
+
+Command: CREATE OR REPLACE WRAPPER CUSTOM ds_subcatcode_booklet_excel
+    FOLDER = '/base views/dit/non retail'
+    DATASOURCENAME=ds_subcatcode_booklet_excel
+    PARAMETERS (
+      'Type of file' = 'Excel 2007 or later (*.xlsx)',
+      'File location' = ROUTE LOCAL 'LocalConnection' '/intgfs/IMS/DIT/SupplementFiles/OutputFiles/Gilead DDD Outlet Subcategory Codes Booklet.xlsx',
+      'Worksheet' = 'SUBCAT',
+      'Extract data from all sheets' = false,
+      'Extract sheet name as a new column' = false,
+      'Start cell' = 'A11',
+      'Has headers' = true,
+      'Stream tuples' = true
+    )
+    OUTPUTSCHEMA (
+        code = 'CODE' : 'java.lang.String' (OPT) SORTABLE,
+        outletdescription = 'OUTLET DESCRIPTION' : 'java.lang.String' (OPT) SORTABLE,
+        category = 'CATEGORY' : 'java.lang.String' (OPT) SORTABLE,
+        outletdefinition = 'OUTLET DEFINITION' : 'java.lang.String' (OPT) SORTABLE,
+        outletexample = 'OUTLET EXAMPLE' : 'java.lang.String' (OPT) SORTABLE,
+        classoftrade = 'CLASS OF TRADE' : 'java.lang.String' (OPT) SORTABLE,
+        audit = 'AUDIT' : 'java.lang.String' (OPT) SORTABLE,
+        excludefromddd = 'Exclude from DDD' : 'java.lang.String' (OPT) SORTABLE
+    )
+ERROR:
+
+Error creating association: destination folder '/base views/dit/non retail' not found
+
+--------------------------------------------------------------------------------
+[JobStatistics ... #Runs: 37/37 #Errors: 12 #Warnings: 0]
+--------------------------------------------------------------------------------

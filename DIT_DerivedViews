@@ -1,0 +1,416 @@
+Info: begin batch execution
+Info: number of jobs: 281
+--------------------------------------------------------------------------------
+Command #16
+Statement: CREATE OR REPLACE VIEW dv_presc_change_log_excel_vw FOLDER = '/derived views/dit/retail' AS SELECT bv_presc_change_log_excel_vw.imsprescribernumber AS imsprescribernumber, bv_presc_change_log_excel_vw.typeofchange AS typeofchange, bv_presc_change_log_excel_vw.lastname AS lastname, bv_presc_change_log_excel_vw.firstname AS firstname, bv_presc_change_log_excel_vw.middlename AS middlename, bv_presc_change_log_excel_vw.streetaddress AS streetaddress, bv_presc_change_log_excel_vw.zipcode AS zipcode, bv_presc_change_log_excel_vw.state AS state, bv_presc_change_log_excel_vw.specialty AS specialty, bv_presc_change_log_excel_vw.city AS city, bv_presc_change_log_excel_vw.certification AS certification, bv_presc_change_log_excel_vw.namesuffix AS namesuffix, bv_presc_change_log_excel_vw.sourcenumber AS sourcenumber, bv_presc_change_log_excel_vw.deanumber AS deanumber, bv_presc_change_log_excel_vw.crossreferencedtoimsprescribernumber AS crossreferencedtoimsprescribernumber, bv_presc_change_log_exce...
+QUERY ERROR
+
+--------------------------------------------------------------------------------
+Command #17
+Statement: ALTER VIEW dv_presc_change_log_excel_vw
+ LAYOUT (bv_file_system_vw = [20, 90, 200, 225], bv_presc_change_log_excel_vw = [290, 100, 200, 225], bv_presc_change_log_desc_excel_vw = [560, 120, 200, 66])
+QUERY ERROR
+
+--------------------------------------------------------------------------------
+Command #18
+Statement: CREATE OR REPLACE VIEW dv_prescriber_calls_vw FOLDER = '/derived views/dit/retail' AS SELECT bv_prescriber_calls_vw.prescriberid AS prescriberid, bv_prescriber_calls_vw.mktnm AS mktnm, bv_prescriber_calls_vw.brandcode AS brandcode, bv_prescriber_calls_vw.terrid AS terrid, bv_prescriber_calls_vw.calldt AS calldt, bv_prescriber_calls_vw.callactivity AS callactivity FROM bv_prescriber_calls_vw bv_prescriber_calls_vw WHERE bv_prescriber_calls_vw.prescriberid in (SELECT prescriberid FROM dv_added_prescriber_base_vw)
+QUERY ERROR
+
+--------------------------------------------------------------------------------
+Command #19
+Statement: ALTER VIEW dv_prescriber_calls_vw
+ LAYOUT (bv_prescriber_calls_vw = [20, 20, 200, 146])
+QUERY ERROR
+
+--------------------------------------------------------------------------------
+Command #20
+Statement: ALTER VIEW dv_prescriber_calls_vw
+ CACHE FULL
+     BATCHSIZEINCACHE DEFAULT TIMETOLIVEINCACHE NOEXPIRE
+QUERY ERROR
+
+--------------------------------------------------------------------------------
+Command #21
+Statement: CREATE OR REPLACE VIEW dv_prescriber_nbrx_count_vw FOLDER = '/derived views/dit/retail' AS SELECT bv_prescriber_nbrx_count_vw.prescriberid AS prescriberid, bv_prescriber_nbrx_count_vw.mktnm AS mktnm, bv_prescriber_nbrx_count_vw.brdcd AS brdcd, bv_prescriber_nbrx_count_vw.terrid AS terrid, bv_prescriber_nbrx_count_vw.nbrxslsdt AS nbrxslsdt, bv_prescriber_nbrx_count_vw.nbrxcounts AS nbrxcounts FROM bv_prescriber_nbrx_count_vw bv_prescriber_nbrx_count_vw WHERE bv_prescriber_nbrx_count_vw.prescriberid in (SELECT prescriberid FROM dv_added_prescriber_base_vw)
+QUERY ERROR
+
+--------------------------------------------------------------------------------
+Command #22
+Statement: ALTER VIEW dv_prescriber_nbrx_count_vw
+ LAYOUT (bv_prescriber_nbrx_count_vw = [20, 20, 231, 146])
+QUERY ERROR
+
+--------------------------------------------------------------------------------
+Command #23
+Statement: ALTER VIEW dv_prescriber_nbrx_count_vw
+ CACHE FULL
+     BATCHSIZEINCACHE DEFAULT TIMETOLIVEINCACHE NOEXPIRE
+QUERY ERROR
+
+--------------------------------------------------------------------------------
+Command #28
+Statement: CREATE OR REPLACE VIEW dv_missing_current_frozen_vw FOLDER = '/derived views/dit/retail/missing prescriber' AS SELECT bv_missing_current_frozen_vw.prescriberid AS prescriberid, bv_missing_current_frozen_vw.territoryid AS territoryid, bv_missing_current_frozen_vw.retailsalesdate AS retailsalesdate, bv_missing_current_frozen_vw.territoryname AS territoryname, brandcode AS brandcode, franchise AS franchise FROM bv_missing_current_frozen_vw bv_missing_current_frozen_vw WHERE (bv_missing_current_frozen_vw.prescriberid in (SELECT dv_missing_prescriber_base_vw.prescriberid FROM dv_missing_prescriber_base_vw) AND bv_missing_current_frozen_vw.retailsalesdate >= addmonth(current_date(), -24))
+QUERY ERROR
+
+--------------------------------------------------------------------------------
+Command #29
+Statement: ALTER VIEW dv_missing_current_frozen_vw
+ LAYOUT (bv_missing_current_frozen_vw = [20, 20, 238, 105])
+QUERY ERROR
+
+--------------------------------------------------------------------------------
+Command #30
+Statement: ALTER VIEW dv_missing_current_frozen_vw
+ CACHE FULL
+     BATCHSIZEINCACHE DEFAULT TIMETOLIVEINCACHE NOEXPIRE
+QUERY ERROR
+
+--------------------------------------------------------------------------------
+Command #33
+Statement: CREATE OR REPLACE VIEW dv_missing_prescriber_vw FOLDER = '/derived views/dit/retail/missing prescriber' AS SELECT dv_missing_prescriber_base_vw.prescriberid AS prescriberid, dv_missing_prescriber_base_vw.prescribername AS prescribername, dv_missing_prescriber_base_vw.decile AS decile, dv_missing_prescriber_base_vw.address AS address, dv_missing_prescriber_base_vw.prescriberg360status AS prescriberg360status, dv_missing_prescriber_base_vw.pdrpstatus AS pdrpstatus, dv_missing_prescriber_base_vw.kaiserstatus AS kaiserstatus, dv_missing_prescriber_base_vw.pedexclusion AS pedexclusion, dv_missing_prescriber_base_vw.snapshotdate AS snapshotdate, dv_missing_prescriber_base_vw.territoryid AS territoryid, dv_missing_prescriber_base_vw.territory AS territory, dv_missing_prescriber_base_vw.brandcode AS brandcode, dv_missing_prescriber_base_vw.brandname AS brandname, dv_missing_prescriber_base_vw.franchise AS franchise, dv_missing_prescriber_base_vw.regionid AS regionid, dv_missing_prescriber_base...
+QUERY ERROR
+
+--------------------------------------------------------------------------------
+Command #34
+Statement: ALTER VIEW dv_missing_prescriber_vw
+ LAYOUT (dv_missing_prescriber_base_vw = [30, 160, 200, 225], dv_missing_current_frozen_vw = [430, 80, 200, 105], dv_prescriber_nbrx_count_vw = [430, 180, 200, 146], dv_prescriber_calls_vw = [450, 370, 200, 146])
+QUERY ERROR
+
+--------------------------------------------------------------------------------
+Command #35
+Statement: CREATE OR REPLACE VIEW dv_missing_prescriber_final_vw FOLDER = '/derived views/dit/retail/missing prescriber' AS SELECT dv_missing_prescriber_vw.prescriberid AS prescriberid, dv_missing_prescriber_vw.prescribername AS prescribername, dv_missing_prescriber_vw.decile AS decile, dv_missing_prescriber_vw.address AS address, dv_missing_prescriber_vw.prescriberg360status AS prescriberg360status, dv_missing_prescriber_vw.pdrpstatus AS pdrpstatus, dv_missing_prescriber_vw.kaiserstatus AS kaiserstatus, dv_missing_prescriber_vw.pedexclusion AS pedexclusion, dv_missing_prescriber_vw.snapshotdate AS snapshotdate, dv_missing_prescriber_vw.territoryid AS territoryid, dv_missing_prescriber_vw.territory AS territory, dv_missing_prescriber_vw.brandcode AS brandcode, dv_missing_prescriber_vw.brandname AS brandname, dv_missing_prescriber_vw.franchise AS franchise, dv_missing_prescriber_vw.regionid AS regionid, dv_missing_prescriber_vw.region AS region, dv_missing_prescriber_vw.areaid AS areaid, dv_missin...
+QUERY ERROR
+
+--------------------------------------------------------------------------------
+Command #36
+Statement: ALTER VIEW dv_missing_prescriber_final_vw
+ LAYOUT (dv_missing_prescriber_vw = [20, 90, 200, 225], dv_presc_change_log_excel_vw = [491, 132, 200, 225])
+QUERY ERROR
+
+--------------------------------------------------------------------------------
+Command #50
+Statement: CREATE OR REPLACE VIEW dv_added_current_frozen_vw FOLDER = '/derived views/dit/retail/added prescriber' AS SELECT bv_prescriber_current_frozen_vw.prescriberid AS prescriberid, bv_prescriber_current_frozen_vw.prescribername AS prescribername, bv_prescriber_current_frozen_vw.territoryid AS territoryid, bv_prescriber_current_frozen_vw.territory AS territory, bv_prescriber_current_frozen_vw.retailsalesdate AS retailsalesdate, brandcode AS brandcode, franchise AS franchise FROM bv_prescriber_current_frozen_vw bv_prescriber_current_frozen_vw WHERE bv_prescriber_current_frozen_vw.prescriberid in (SELECT dv_added_prescriber_base_vw.prescriberid FROM dv_added_prescriber_base_vw)
+QUERY ERROR
+
+--------------------------------------------------------------------------------
+Command #51
+Statement: ALTER VIEW dv_added_current_frozen_vw
+ LAYOUT (bv_prescriber_current_frozen_vw = [20, 20, 249, 126])
+QUERY ERROR
+
+--------------------------------------------------------------------------------
+Command #52
+Statement: ALTER VIEW dv_added_current_frozen_vw
+ CACHE FULL TIMETOLIVEINCACHE NOEXPIRE
+QUERY ERROR
+
+--------------------------------------------------------------------------------
+Command #59
+Statement: CREATE OR REPLACE VIEW dv_added_prescriber_vw FOLDER = '/derived views/dit/retail/added prescriber' AS SELECT DISTINCT dv_added_prescriber_base_vw.prescriberid AS prescriberid, dv_added_prescriber_base_vw.prescribername AS prescribername, dv_added_prescriber_base_vw.decile AS decile, dv_added_prescriber_base_vw.address AS address, dv_added_prescriber_base_vw.zip AS zip, dv_added_prescriber_base_vw.prescriberg360status AS prescriberg360status, dv_added_prescriber_base_vw.pdrpstatus AS pdrpstatus, dv_added_prescriber_base_vw.kaiserstatus AS kaiserstatus, dv_added_prescriber_base_vw.pedexclusion AS pedexclusion, dv_added_prescriber_base_vw.snapshotdate AS snapshotdate, dv_added_prescriber_base_vw.territoryid AS territoryid, dv_added_prescriber_base_vw.territory AS territory, dv_added_prescriber_base_vw.brandcode AS brandcode, dv_added_prescriber_base_vw.brandname AS brandname, dv_added_prescriber_base_vw.franchise AS franchise, dv_added_prescriber_base_vw.regionid AS regionid, dv_added_pr...
+QUERY ERROR
+
+--------------------------------------------------------------------------------
+Command #60
+Statement: ALTER VIEW dv_added_prescriber_vw
+ LAYOUT (dv_added_prescriber_base_vw = [150, 130, 200, 370], dv_prescriber_calls_vw = [600, 170, 200, 146], dv_prescriber_nbrx_count_vw = [690, 380, 200, 146], dv_added_current_frozen_vw = [600, 0, 270, 166])
+QUERY ERROR
+
+--------------------------------------------------------------------------------
+Command #72
+Statement: CREATE OR REPLACE VIEW dv_added_prescriber_final_vw FOLDER = '/derived views/dit/retail/added prescriber' AS SELECT dv_added_prescriber_vw.prescriberid AS prescriberid, dv_added_prescriber_vw.prescribername AS prescribername, dv_added_prescriber_vw.decile AS decile, dv_added_prescriber_vw.address AS address, dv_added_prescriber_vw.zip AS zip, dv_added_prescriber_vw.prescriberg360status AS prescriberg360status, dv_added_prescriber_vw.pdrpstatus AS pdrpstatus, dv_added_prescriber_vw.kaiserstatus AS kaiserstatus, dv_added_prescriber_vw.pedexclusion AS pedexclusion, dv_added_prescriber_vw.snapshotdate AS snapshotdate, dv_added_prescriber_vw.territoryid AS territoryid, dv_added_prescriber_vw.territory AS territory, dv_added_prescriber_vw.brandcode AS brandcode, dv_added_prescriber_vw.brandname AS brandname, dv_added_prescriber_vw.franchise AS franchise, dv_added_prescriber_vw.regionid AS regionid, dv_added_prescriber_vw.region AS region, dv_added_prescriber_vw.areaid AS areaid, dv_added_pre...
+QUERY ERROR
+
+--------------------------------------------------------------------------------
+Command #73
+Statement: ALTER VIEW dv_added_prescriber_final_vw
+ LAYOUT (dv_added_prescriber_vw = [110, 150, 200, 225], dv_presc_change_log_excel_vw = [576, 153, 200, 225])
+QUERY ERROR
+
+--------------------------------------------------------------------------------
+Command #84
+Statement: ALTER VIEW dv_missing_prescriber_current_vol_vw
+ CACHE FULL
+     BATCHSIZEINCACHE DEFAULT TIMETOLIVEINCACHE NOEXPIRE
+QUERY ERROR
+
+--------------------------------------------------------------------------------
+Command #89
+Statement: ALTER VIEW dv_missing_prescriber_previous_vol_vw
+ CACHE FULL
+     BATCHSIZEINCACHE DEFAULT TIMETOLIVEINCACHE NOEXPIRE
+QUERY ERROR
+
+--------------------------------------------------------------------------------
+Command #128
+Statement: CREATE OR REPLACE VIEW dv_dit_file_tab_vw FOLDER = '/derived views/dit/non retail' AS SELECT dv_cross_channel_excel_vw.outletname AS outletname, dv_cross_channel_excel_vw.outletaddress AS outletaddress, dv_cross_channel_excel_vw.outletcity AS outletcity, dv_cross_channel_excel_vw.zip AS zip, dv_cross_channel_excel_vw.state AS state, dv_cross_channel_excel_vw.crosschannelfilename AS crosschannelfilename, dv_ltcxpo_excel_vw.outlet AS outlet, dv_ltcxpo_excel_vw.sheetname AS sheetname, dv_ltcxpo_excel_vw.ltcxpofilename AS ltcxpofilename, dv_mail_service_excel_vw.reportingstatuschange AS reportingstatuschange, dv_mail_service_excel_vw.active AS active, dv_mail_service_excel_vw.pre AS pre, dv_mail_service_excel_vw.name AS name, dv_mail_service_excel_vw.xpolatestdate AS xpolatestdate, dv_mail_service_excel_vw.mailservicefilename AS mailservicefilename, dv_outlet_change_log_csv_vw.outletnumber AS outletnumber, dv_outlet_change_log_csv_vw.outletstate AS outletstate, dv_outlet_change_log_csv_vw....
+QUERY ERROR
+
+--------------------------------------------------------------------------------
+Command #129
+Statement: ALTER VIEW dv_dit_file_tab_vw
+ LAYOUT (dv_cross_channel_excel_vw = [70, 350, 200, 225], dv_ltcxpo_excel_vw = [500, 0, 200, 206], dv_mail_service_excel_vw = [510, 220, 200, 225], dv_outlet_change_log_csv_vw = [510, 460, 200, 225], dv_ddd_outlet_history_csv_vw = [510, 690, 200, 225])
+QUERY ERROR
+
+--------------------------------------------------------------------------------
+Command #183
+Statement: ALTER VIEW dv_soc_r6mtrx_calc_vw
+ CACHE FULL TIMETOLIVEINCACHE NOEXPIRE
+    DECLARE CACHE INDEX outletid_ind ON (outletid)
+QUERY ERROR
+
+--------------------------------------------------------------------------------
+Command #235
+Statement: ALTER VIEW dv_missing_volume_report_vw
+ CACHE FULL
+     BATCHSIZEINCACHE DEFAULT TIMETOLIVEINCACHE NOEXPIRE
+QUERY ERROR
+
+--------------------------------------------------------------------------------
+Command #258
+Statement: ALTER VIEW dv_fact_alig_nbrx_core_mth_vw
+ CACHE FULL
+     BATCHSIZEINCACHE DEFAULT TIMETOLIVEINCACHE NOEXPIRE
+QUERY ERROR
+
+--------------------------------------------------------------------------------
+Command #263
+Statement: ALTER VIEW dv_fact_alig_non_rtl_sls_mthly_vw
+ CACHE FULL
+     BATCHSIZEINCACHE DEFAULT TIMETOLIVEINCACHE NOEXPIRE
+QUERY ERROR
+
+--------------------------------------------------------------------------------
+Command #268
+Statement: ALTER VIEW dv_fact_alig_non_rtl_sls_wkly_vw
+ CACHE FULL
+     BATCHSIZEINCACHE DEFAULT TIMETOLIVEINCACHE NOEXPIRE
+QUERY ERROR
+
+--------------------------------------------------------------------------------
+Command #273
+Statement: ALTER VIEW dv_fact_alig_rtl_sls_mthly_vw
+ CACHE FULL
+     BATCHSIZEINCACHE DEFAULT TIMETOLIVEINCACHE NOEXPIRE
+QUERY ERROR
+
+--------------------------------------------------------------------------------
+Command #278
+Statement: ALTER VIEW dv_fact_alig_rtl_sls_wkly_vw
+ CACHE FULL
+     BATCHSIZEINCACHE DEFAULT TIMETOLIVEINCACHE NOEXPIRE
+QUERY ERROR
+
+
+
+Command: CREATE OR REPLACE VIEW dv_presc_change_log_excel_vw FOLDER = '/derived views/dit/retail' AS SELECT bv_presc_change_log_excel_vw.imsprescribernumber AS imsprescribernumber, bv_presc_change_log_excel_vw.typeofchange AS typeofchange, bv_presc_change_log_excel_vw.lastname AS lastname, bv_presc_change_log_excel_vw.firstname AS firstname, bv_presc_change_log_excel_vw.middlename AS middlename, bv_presc_change_log_excel_vw.streetaddress AS streetaddress, bv_presc_change_log_excel_vw.zipcode AS zipcode, bv_presc_change_log_excel_vw.state AS state, bv_presc_change_log_excel_vw.specialty AS specialty, bv_presc_change_log_excel_vw.city AS city, bv_presc_change_log_excel_vw.certification AS certification, bv_presc_change_log_excel_vw.namesuffix AS namesuffix, bv_presc_change_log_excel_vw.sourcenumber AS sourcenumber, bv_presc_change_log_excel_vw.deanumber AS deanumber, bv_presc_change_log_excel_vw.crossreferencedtoimsprescribernumber AS crossreferencedtoimsprescribernumber, bv_presc_change_log_excel_vw.inactiveindicator AS inactiveindicator, bv_presc_change_log_excel_vw.cmfoutletnumber AS cmfoutletnumber, bv_presc_change_log_excel_vw.professionalid AS professionalid, bv_presc_change_log_excel_vw.presumeddeadindicator AS presumeddeadindicator, bv_presc_change_log_excel_vw.primarylocationindicator AS primarylocationindicator, bv_presc_change_log_excel_vw.filename AS filename, bv_presc_change_log_desc_excel_vw.description AS description FROM (bv_file_system_vw AS bv_file_system_vw INNER JOIN bv_presc_change_log_excel_vw AS bv_presc_change_log_excel_vw ON bv_file_system_vw.filename = bv_presc_change_log_excel_vw.filename ) INNER JOIN bv_presc_change_log_desc_excel_vw AS bv_presc_change_log_desc_excel_vw ON bv_presc_change_log_excel_vw.typeofchange = bv_presc_change_log_desc_excel_vw.actioncode  WHERE (bv_file_system_vw.parentfolder = '/intgfs/IMS/DIT/SupplementFiles' AND bv_file_system_vw.recursive = false AND bv_presc_change_log_excel_vw.filename like 'Prescriber Change Log%' AND bv_file_system_vw.datemodified = (SELECT max(bv_file_system_vw.datemodified) AS max FROM bv_file_system_vw AS bv_file_system_vw INNER JOIN bv_presc_change_log_excel_vw AS bv_presc_change_log_excel_vw ON bv_file_system_vw.filename = bv_presc_change_log_excel_vw.filename  WHERE (bv_file_system_vw.recursive = false AND bv_file_system_vw.parentfolder = '/intgfs/IMS/DIT/SupplementFiles' AND bv_presc_change_log_excel_vw.filename like 'Prescriber Change Log%')))
+ERROR:
+
+View 'bv_presc_change_log_desc_excel_vw' not found
+
+Command: ALTER VIEW dv_presc_change_log_excel_vw
+ LAYOUT (bv_file_system_vw = [20, 90, 200, 225], bv_presc_change_log_excel_vw = [290, 100, 200, 225], bv_presc_change_log_desc_excel_vw = [560, 120, 200, 66])
+ERROR:
+
+View 'dv_presc_change_log_excel_vw' not found
+
+Command: CREATE OR REPLACE VIEW dv_prescriber_calls_vw FOLDER = '/derived views/dit/retail' AS SELECT bv_prescriber_calls_vw.prescriberid AS prescriberid, bv_prescriber_calls_vw.mktnm AS mktnm, bv_prescriber_calls_vw.brandcode AS brandcode, bv_prescriber_calls_vw.terrid AS terrid, bv_prescriber_calls_vw.calldt AS calldt, bv_prescriber_calls_vw.callactivity AS callactivity FROM bv_prescriber_calls_vw bv_prescriber_calls_vw WHERE bv_prescriber_calls_vw.prescriberid in (SELECT prescriberid FROM dv_added_prescriber_base_vw)
+ERROR:
+
+Error in select view conditions: View 'dv_added_prescriber_base_vw' not found
+
+Command: ALTER VIEW dv_prescriber_calls_vw
+ LAYOUT (bv_prescriber_calls_vw = [20, 20, 200, 146])
+ERROR:
+
+View 'dv_prescriber_calls_vw' not found
+
+Command: ALTER VIEW dv_prescriber_calls_vw
+ CACHE FULL
+     BATCHSIZEINCACHE DEFAULT TIMETOLIVEINCACHE NOEXPIRE
+ERROR:
+
+View 'dv_prescriber_calls_vw' not found
+
+Command: CREATE OR REPLACE VIEW dv_prescriber_nbrx_count_vw FOLDER = '/derived views/dit/retail' AS SELECT bv_prescriber_nbrx_count_vw.prescriberid AS prescriberid, bv_prescriber_nbrx_count_vw.mktnm AS mktnm, bv_prescriber_nbrx_count_vw.brdcd AS brdcd, bv_prescriber_nbrx_count_vw.terrid AS terrid, bv_prescriber_nbrx_count_vw.nbrxslsdt AS nbrxslsdt, bv_prescriber_nbrx_count_vw.nbrxcounts AS nbrxcounts FROM bv_prescriber_nbrx_count_vw bv_prescriber_nbrx_count_vw WHERE bv_prescriber_nbrx_count_vw.prescriberid in (SELECT prescriberid FROM dv_added_prescriber_base_vw)
+ERROR:
+
+Error in select view conditions: View 'dv_added_prescriber_base_vw' not found
+
+Command: ALTER VIEW dv_prescriber_nbrx_count_vw
+ LAYOUT (bv_prescriber_nbrx_count_vw = [20, 20, 231, 146])
+ERROR:
+
+View 'dv_prescriber_nbrx_count_vw' not found
+
+Command: ALTER VIEW dv_prescriber_nbrx_count_vw
+ CACHE FULL
+     BATCHSIZEINCACHE DEFAULT TIMETOLIVEINCACHE NOEXPIRE
+ERROR:
+
+View 'dv_prescriber_nbrx_count_vw' not found
+
+Command: CREATE OR REPLACE VIEW dv_missing_current_frozen_vw FOLDER = '/derived views/dit/retail/missing prescriber' AS SELECT bv_missing_current_frozen_vw.prescriberid AS prescriberid, bv_missing_current_frozen_vw.territoryid AS territoryid, bv_missing_current_frozen_vw.retailsalesdate AS retailsalesdate, bv_missing_current_frozen_vw.territoryname AS territoryname, brandcode AS brandcode, franchise AS franchise FROM bv_missing_current_frozen_vw bv_missing_current_frozen_vw WHERE (bv_missing_current_frozen_vw.prescriberid in (SELECT dv_missing_prescriber_base_vw.prescriberid FROM dv_missing_prescriber_base_vw) AND bv_missing_current_frozen_vw.retailsalesdate >= addmonth(current_date(), -24))
+ERROR:
+
+Error in select view conditions: View 'dv_missing_prescriber_base_vw' not found
+
+Command: ALTER VIEW dv_missing_current_frozen_vw
+ LAYOUT (bv_missing_current_frozen_vw = [20, 20, 238, 105])
+ERROR:
+
+View 'dv_missing_current_frozen_vw' not found
+
+Command: ALTER VIEW dv_missing_current_frozen_vw
+ CACHE FULL
+     BATCHSIZEINCACHE DEFAULT TIMETOLIVEINCACHE NOEXPIRE
+ERROR:
+
+View 'dv_missing_current_frozen_vw' not found
+
+Command: CREATE OR REPLACE VIEW dv_missing_prescriber_vw FOLDER = '/derived views/dit/retail/missing prescriber' AS SELECT dv_missing_prescriber_base_vw.prescriberid AS prescriberid, dv_missing_prescriber_base_vw.prescribername AS prescribername, dv_missing_prescriber_base_vw.decile AS decile, dv_missing_prescriber_base_vw.address AS address, dv_missing_prescriber_base_vw.prescriberg360status AS prescriberg360status, dv_missing_prescriber_base_vw.pdrpstatus AS pdrpstatus, dv_missing_prescriber_base_vw.kaiserstatus AS kaiserstatus, dv_missing_prescriber_base_vw.pedexclusion AS pedexclusion, dv_missing_prescriber_base_vw.snapshotdate AS snapshotdate, dv_missing_prescriber_base_vw.territoryid AS territoryid, dv_missing_prescriber_base_vw.territory AS territory, dv_missing_prescriber_base_vw.brandcode AS brandcode, dv_missing_prescriber_base_vw.brandname AS brandname, dv_missing_prescriber_base_vw.franchise AS franchise, dv_missing_prescriber_base_vw.regionid AS regionid, dv_missing_prescriber_base_vw.region AS region, dv_missing_prescriber_base_vw.areaid AS areaid, dv_missing_prescriber_base_vw.area AS area, dv_missing_prescriber_base_vw.nationid AS nationid, dv_missing_prescriber_base_vw.nation AS nation, dv_missing_prescriber_base_vw.geographyid AS geographyid, dv_missing_prescriber_base_vw.geography AS geography, dv_missing_prescriber_base_vw.retailsalesdate AS retailsalesdate, dv_missing_prescriber_base_vw.trxbottles AS trxbottles, dv_missing_prescriber_base_vw.trxcounts AS trxcounts, dv_missing_prescriber_base_vw.nrxbottles AS nrxbottles, dv_missing_prescriber_base_vw.nrxcounts AS nrxcounts, dv_missing_prescriber_base_vw.zip AS zip, dv_missing_current_frozen_vw.territoryid AS frozenterritoryid, dv_prescriber_calls_vw.callactivity AS callactivity, dv_prescriber_nbrx_count_vw.nbrxcounts AS nbrxcounts, dv_missing_prescriber_base_vw.targetflag AS targetflag, dv_missing_prescriber_base_vw.imsprescriberid AS imsprescriberid, dv_missing_current_frozen_vw.territoryname AS frozenterritoryname FROM ((dv_missing_prescriber_base_vw AS dv_missing_prescriber_base_vw LEFT OUTER JOIN dv_missing_current_frozen_vw AS dv_missing_current_frozen_vw ON (dv_missing_prescriber_base_vw.prescriberid = dv_missing_current_frozen_vw.prescriberid AND dv_missing_prescriber_base_vw.brandcode = dv_missing_current_frozen_vw.brandcode AND dv_missing_prescriber_base_vw.franchise = dv_missing_current_frozen_vw.franchise AND formatdate('MMM-YYYY', dv_missing_prescriber_base_vw.retailsalesdate) = formatdate('MMM-YYYY', dv_missing_current_frozen_vw.retailsalesdate)) ) LEFT OUTER JOIN dv_prescriber_nbrx_count_vw AS dv_prescriber_nbrx_count_vw ON (dv_missing_prescriber_base_vw.prescriberid = dv_prescriber_nbrx_count_vw.prescriberid AND dv_missing_prescriber_base_vw.brandcode = dv_prescriber_nbrx_count_vw.brdcd AND dv_missing_prescriber_base_vw.territoryid = dv_prescriber_nbrx_count_vw.terrid AND formatdate('MMM-YYYY', dv_missing_prescriber_base_vw.retailsalesdate) = formatdate('MMM-YYYY', dv_prescriber_nbrx_count_vw.nbrxslsdt)) ) LEFT OUTER JOIN dv_prescriber_calls_vw AS dv_prescriber_calls_vw ON (dv_missing_prescriber_base_vw.prescriberid = dv_prescriber_calls_vw.prescriberid AND dv_missing_prescriber_base_vw.territoryid = dv_prescriber_calls_vw.terrid AND dv_missing_prescriber_base_vw.brandcode = dv_prescriber_calls_vw.brandcode AND dv_missing_prescriber_base_vw.franchise = dv_prescriber_calls_vw.mktnm AND formatdate('MMM-YYYY', dv_missing_prescriber_base_vw.retailsalesdate) = formatdate('MMM-YYYY', dv_prescriber_calls_vw.calldt))
+ERROR:
+
+View 'dv_missing_current_frozen_vw' not found
+
+Command: ALTER VIEW dv_missing_prescriber_vw
+ LAYOUT (dv_missing_prescriber_base_vw = [30, 160, 200, 225], dv_missing_current_frozen_vw = [430, 80, 200, 105], dv_prescriber_nbrx_count_vw = [430, 180, 200, 146], dv_prescriber_calls_vw = [450, 370, 200, 146])
+ERROR:
+
+View 'dv_missing_prescriber_vw' not found
+
+Command: CREATE OR REPLACE VIEW dv_missing_prescriber_final_vw FOLDER = '/derived views/dit/retail/missing prescriber' AS SELECT dv_missing_prescriber_vw.prescriberid AS prescriberid, dv_missing_prescriber_vw.prescribername AS prescribername, dv_missing_prescriber_vw.decile AS decile, dv_missing_prescriber_vw.address AS address, dv_missing_prescriber_vw.prescriberg360status AS prescriberg360status, dv_missing_prescriber_vw.pdrpstatus AS pdrpstatus, dv_missing_prescriber_vw.kaiserstatus AS kaiserstatus, dv_missing_prescriber_vw.pedexclusion AS pedexclusion, dv_missing_prescriber_vw.snapshotdate AS snapshotdate, dv_missing_prescriber_vw.territoryid AS territoryid, dv_missing_prescriber_vw.territory AS territory, dv_missing_prescriber_vw.brandcode AS brandcode, dv_missing_prescriber_vw.brandname AS brandname, dv_missing_prescriber_vw.franchise AS franchise, dv_missing_prescriber_vw.regionid AS regionid, dv_missing_prescriber_vw.region AS region, dv_missing_prescriber_vw.areaid AS areaid, dv_missing_prescriber_vw.area AS area, dv_missing_prescriber_vw.nationid AS nationid, dv_missing_prescriber_vw.nation AS nation, dv_missing_prescriber_vw.geographyid AS geographyid, dv_missing_prescriber_vw.geography AS geography, dv_missing_prescriber_vw.retailsalesdate AS retailsalesdate, dv_missing_prescriber_vw.trxbottles AS trxbottles, dv_missing_prescriber_vw.trxcounts AS trxcounts, dv_missing_prescriber_vw.nrxbottles AS nrxbottles, dv_missing_prescriber_vw.nrxcounts AS nrxcounts, dv_missing_prescriber_vw.zip AS zip, dv_missing_prescriber_vw.frozenterritoryid AS frozenterritoryid, dv_missing_prescriber_vw.callactivity AS callactivity, dv_missing_prescriber_vw.nbrxcounts AS nbrxcounts, dv_missing_prescriber_vw.targetflag AS targetflag, dv_presc_change_log_excel_vw.filename AS filename, dv_presc_change_log_excel_vw.description AS description, dv_missing_prescriber_vw.imsprescriberid AS imsprescriberid, dv_missing_prescriber_vw.frozenterritoryname AS frozenterritoryname FROM dv_missing_prescriber_vw AS dv_missing_prescriber_vw LEFT OUTER JOIN dv_presc_change_log_excel_vw AS dv_presc_change_log_excel_vw ON dv_missing_prescriber_vw.imsprescriberid = dv_presc_change_log_excel_vw.imsprescribernumber
+ERROR:
+
+View 'dv_missing_prescriber_vw' not found
+
+Command: ALTER VIEW dv_missing_prescriber_final_vw
+ LAYOUT (dv_missing_prescriber_vw = [20, 90, 200, 225], dv_presc_change_log_excel_vw = [491, 132, 200, 225])
+ERROR:
+
+View 'dv_missing_prescriber_final_vw' not found
+
+Command: CREATE OR REPLACE VIEW dv_added_current_frozen_vw FOLDER = '/derived views/dit/retail/added prescriber' AS SELECT bv_prescriber_current_frozen_vw.prescriberid AS prescriberid, bv_prescriber_current_frozen_vw.prescribername AS prescribername, bv_prescriber_current_frozen_vw.territoryid AS territoryid, bv_prescriber_current_frozen_vw.territory AS territory, bv_prescriber_current_frozen_vw.retailsalesdate AS retailsalesdate, brandcode AS brandcode, franchise AS franchise FROM bv_prescriber_current_frozen_vw bv_prescriber_current_frozen_vw WHERE bv_prescriber_current_frozen_vw.prescriberid in (SELECT dv_added_prescriber_base_vw.prescriberid FROM dv_added_prescriber_base_vw)
+ERROR:
+
+Error in select view conditions: View 'dv_added_prescriber_base_vw' not found
+
+Command: ALTER VIEW dv_added_current_frozen_vw
+ LAYOUT (bv_prescriber_current_frozen_vw = [20, 20, 249, 126])
+ERROR:
+
+View 'dv_added_current_frozen_vw' not found
+
+Command: ALTER VIEW dv_added_current_frozen_vw
+ CACHE FULL TIMETOLIVEINCACHE NOEXPIRE
+ERROR:
+
+View 'dv_added_current_frozen_vw' not found
+
+Command: CREATE OR REPLACE VIEW dv_added_prescriber_vw FOLDER = '/derived views/dit/retail/added prescriber' AS SELECT DISTINCT dv_added_prescriber_base_vw.prescriberid AS prescriberid, dv_added_prescriber_base_vw.prescribername AS prescribername, dv_added_prescriber_base_vw.decile AS decile, dv_added_prescriber_base_vw.address AS address, dv_added_prescriber_base_vw.zip AS zip, dv_added_prescriber_base_vw.prescriberg360status AS prescriberg360status, dv_added_prescriber_base_vw.pdrpstatus AS pdrpstatus, dv_added_prescriber_base_vw.kaiserstatus AS kaiserstatus, dv_added_prescriber_base_vw.pedexclusion AS pedexclusion, dv_added_prescriber_base_vw.snapshotdate AS snapshotdate, dv_added_prescriber_base_vw.territoryid AS territoryid, dv_added_prescriber_base_vw.territory AS territory, dv_added_prescriber_base_vw.brandcode AS brandcode, dv_added_prescriber_base_vw.brandname AS brandname, dv_added_prescriber_base_vw.franchise AS franchise, dv_added_prescriber_base_vw.regionid AS regionid, dv_added_prescriber_base_vw.region AS region, dv_added_prescriber_base_vw.areaid AS areaid, dv_added_prescriber_base_vw.area AS area, dv_added_prescriber_base_vw.nationid AS nationid, dv_added_prescriber_base_vw.nation AS nation, dv_added_prescriber_base_vw.geographyid AS geographyid, dv_added_prescriber_base_vw.geography AS geography, dv_added_prescriber_base_vw.retailsalesdate AS retailsalesdate, dv_added_prescriber_base_vw.trxbottles AS trxbottles, dv_added_prescriber_base_vw.trxcounts AS trxcounts, dv_added_prescriber_base_vw.nrxbottles AS nrxbottles, dv_added_prescriber_base_vw.nrxcounts AS nrxcounts, dv_prescriber_nbrx_count_vw.nbrxcounts AS nbrxcounts, dv_prescriber_current_frozen_base_vw.territoryid AS frozenterritoryid, dv_prescriber_calls_vw.callactivity AS callactivity, dv_added_prescriber_base_vw.targetflag AS targetflag, dv_added_prescriber_base_vw.imsprescriberid AS imsprescriberid FROM ((dv_added_prescriber_base_vw AS dv_added_prescriber_base_vw LEFT OUTER JOIN dv_prescriber_calls_vw AS dv_prescriber_calls_vw ON (dv_added_prescriber_base_vw.prescriberid = dv_prescriber_calls_vw.prescriberid AND dv_added_prescriber_base_vw.brandcode = dv_prescriber_calls_vw.brandcode AND dv_added_prescriber_base_vw.territoryid = dv_prescriber_calls_vw.terrid AND dv_added_prescriber_base_vw.franchise = dv_prescriber_calls_vw.mktnm AND formatdate('MMM-YYYY', dv_added_prescriber_base_vw.retailsalesdate) = formatdate('MMM-YYYY', dv_prescriber_calls_vw.calldt)) ) LEFT OUTER JOIN dv_prescriber_nbrx_count_vw AS dv_prescriber_nbrx_count_vw ON (dv_added_prescriber_base_vw.territoryid = dv_prescriber_nbrx_count_vw.terrid AND dv_added_prescriber_base_vw.brandcode = dv_prescriber_nbrx_count_vw.brdcd AND dv_added_prescriber_base_vw.prescriberid = dv_prescriber_nbrx_count_vw.prescriberid AND formatdate('MMM-YYYY', dv_added_prescriber_base_vw.retailsalesdate) = formatdate('MMM-YYYY', dv_prescriber_nbrx_count_vw.nbrxslsdt)) ) LEFT OUTER JOIN dv_added_current_frozen_vw AS dv_prescriber_current_frozen_base_vw ON (dv_added_prescriber_base_vw.prescriberid = dv_prescriber_current_frozen_base_vw.prescriberid AND dv_added_prescriber_base_vw.franchise = dv_prescriber_current_frozen_base_vw.franchise AND dv_added_prescriber_base_vw.brandcode = dv_prescriber_current_frozen_base_vw.brandcode AND formatdate('MMM-YYYY', dv_added_prescriber_base_vw.retailsalesdate) = formatdate('MMM-YYYY', dv_prescriber_current_frozen_base_vw.retailsalesdate))
+ERROR:
+
+View 'dv_prescriber_calls_vw' not found
+
+Command: ALTER VIEW dv_added_prescriber_vw
+ LAYOUT (dv_added_prescriber_base_vw = [150, 130, 200, 370], dv_prescriber_calls_vw = [600, 170, 200, 146], dv_prescriber_nbrx_count_vw = [690, 380, 200, 146], dv_added_current_frozen_vw = [600, 0, 270, 166])
+ERROR:
+
+View 'dv_added_prescriber_vw' not found
+
+Command: CREATE OR REPLACE VIEW dv_added_prescriber_final_vw FOLDER = '/derived views/dit/retail/added prescriber' AS SELECT dv_added_prescriber_vw.prescriberid AS prescriberid, dv_added_prescriber_vw.prescribername AS prescribername, dv_added_prescriber_vw.decile AS decile, dv_added_prescriber_vw.address AS address, dv_added_prescriber_vw.zip AS zip, dv_added_prescriber_vw.prescriberg360status AS prescriberg360status, dv_added_prescriber_vw.pdrpstatus AS pdrpstatus, dv_added_prescriber_vw.kaiserstatus AS kaiserstatus, dv_added_prescriber_vw.pedexclusion AS pedexclusion, dv_added_prescriber_vw.snapshotdate AS snapshotdate, dv_added_prescriber_vw.territoryid AS territoryid, dv_added_prescriber_vw.territory AS territory, dv_added_prescriber_vw.brandcode AS brandcode, dv_added_prescriber_vw.brandname AS brandname, dv_added_prescriber_vw.franchise AS franchise, dv_added_prescriber_vw.regionid AS regionid, dv_added_prescriber_vw.region AS region, dv_added_prescriber_vw.areaid AS areaid, dv_added_prescriber_vw.area AS area, dv_added_prescriber_vw.nationid AS nationid, dv_added_prescriber_vw.nation AS nation, dv_added_prescriber_vw.geographyid AS geographyid, dv_added_prescriber_vw.geography AS geography, dv_added_prescriber_vw.retailsalesdate AS retailsalesdate, dv_added_prescriber_vw.trxbottles AS trxbottles, dv_added_prescriber_vw.trxcounts AS trxcounts, dv_added_prescriber_vw.nrxbottles AS nrxbottles, dv_added_prescriber_vw.nrxcounts AS nrxcounts, dv_added_prescriber_vw.nbrxcounts AS nbrxcounts, dv_added_prescriber_vw.frozenterritoryid AS frozenterritoryid, dv_added_prescriber_vw.callactivity AS callactivity, dv_added_prescriber_vw.targetflag AS targetflag, dv_presc_change_log_excel_vw.filename AS filename, dv_presc_change_log_excel_vw.description AS description, dv_added_prescriber_vw.imsprescriberid AS imsprescriberid FROM dv_added_prescriber_vw AS dv_added_prescriber_vw LEFT OUTER JOIN dv_presc_change_log_excel_vw AS dv_presc_change_log_excel_vw ON dv_added_prescriber_vw.imsprescriberid = dv_presc_change_log_excel_vw.imsprescribernumber
+ERROR:
+
+View 'dv_added_prescriber_vw' not found
+
+Command: ALTER VIEW dv_added_prescriber_final_vw
+ LAYOUT (dv_added_prescriber_vw = [110, 150, 200, 225], dv_presc_change_log_excel_vw = [576, 153, 200, 225])
+ERROR:
+
+View 'dv_added_prescriber_final_vw' not found
+
+Command: ALTER VIEW dv_missing_prescriber_current_vol_vw
+ CACHE FULL
+     BATCHSIZEINCACHE DEFAULT TIMETOLIVEINCACHE NOEXPIRE
+ERROR:
+
+error modifying view: SQLException in DenodoStandardXAPoolDataSource:getConnection java.sql.SQLException: SQLException in DenodoStandardXAPoolDataSource:getConnection no connection available java.sql.SQLException: ORA-28001: the password has expired
+
+
+Command: ALTER VIEW dv_missing_prescriber_previous_vol_vw
+ CACHE FULL
+     BATCHSIZEINCACHE DEFAULT TIMETOLIVEINCACHE NOEXPIRE
+ERROR:
+
+error modifying view: SQLException in DenodoStandardXAPoolDataSource:getConnection java.sql.SQLException: SQLException in DenodoStandardXAPoolDataSource:getConnection no connection available java.sql.SQLException: ORA-28001: the password has expired
+
+
+Command: CREATE OR REPLACE VIEW dv_dit_file_tab_vw FOLDER = '/derived views/dit/non retail' AS SELECT dv_cross_channel_excel_vw.outletname AS outletname, dv_cross_channel_excel_vw.outletaddress AS outletaddress, dv_cross_channel_excel_vw.outletcity AS outletcity, dv_cross_channel_excel_vw.zip AS zip, dv_cross_channel_excel_vw.state AS state, dv_cross_channel_excel_vw.crosschannelfilename AS crosschannelfilename, dv_ltcxpo_excel_vw.outlet AS outlet, dv_ltcxpo_excel_vw.sheetname AS sheetname, dv_ltcxpo_excel_vw.ltcxpofilename AS ltcxpofilename, dv_mail_service_excel_vw.reportingstatuschange AS reportingstatuschange, dv_mail_service_excel_vw.active AS active, dv_mail_service_excel_vw.pre AS pre, dv_mail_service_excel_vw.name AS name, dv_mail_service_excel_vw.xpolatestdate AS xpolatestdate, dv_mail_service_excel_vw.mailservicefilename AS mailservicefilename, dv_outlet_change_log_csv_vw.outletnumber AS outletnumber, dv_outlet_change_log_csv_vw.outletstate AS outletstate, dv_outlet_change_log_csv_vw.extendedcat AS extendedcat, dv_outlet_change_log_csv_vw.actioncode AS actioncode, dv_outlet_change_log_csv_vw.actiondesc AS actiondesc, dv_outlet_change_log_csv_vw.crossreferencetooutletnumber AS crossreferencetooutletnumber, dv_outlet_change_log_csv_vw.outletchangelogfilename AS outletchangelogfilename, dv_outlet_change_log_csv_vw.oclfiledate AS oclfiledate, dv_ddd_outlet_history_csv_vw.dddhistoryfilename AS dddhistoryfilename, dv_ddd_outlet_history_csv_vw.productdesc AS productdesc, dv_ddd_outlet_history_csv_vw.processdate AS processdate, dv_ddd_outlet_history_csv_vw.datatypedesc AS datatypedesc, dv_ddd_outlet_history_csv_vw.outletid AS outletid, dv_ddd_outlet_history_csv_vw.categorycode AS categorycode, dv_ddd_outlet_history_csv_vw.datadate AS datadate, dv_ddd_outlet_history_csv_vw.packageunits AS packageunits, dv_ddd_outlet_history_csv_vw.volumeunits AS volumeunits FROM (((dv_cross_channel_excel_vw AS dv_cross_channel_excel_vw LEFT OUTER JOIN dv_ltcxpo_excel_vw AS dv_ltcxpo_excel_vw ON dv_cross_channel_excel_vw.outlet = dv_ltcxpo_excel_vw.outlet ) LEFT OUTER JOIN dv_mail_service_excel_vw AS dv_mail_service_excel_vw ON dv_cross_channel_excel_vw.outlet = dv_mail_service_excel_vw.outlet ) LEFT OUTER JOIN dv_outlet_change_log_csv_vw AS dv_outlet_change_log_csv_vw ON dv_cross_channel_excel_vw.outlet = dv_outlet_change_log_csv_vw.outletnumber ) LEFT OUTER JOIN dv_ddd_outlet_history_csv_vw AS dv_ddd_outlet_history_csv_vw ON dv_cross_channel_excel_vw.outlet = dv_ddd_outlet_history_csv_vw.outletid
+ERROR:
+
+View 'dv_ddd_outlet_history_csv_vw' not found
+
+Command: ALTER VIEW dv_dit_file_tab_vw
+ LAYOUT (dv_cross_channel_excel_vw = [70, 350, 200, 225], dv_ltcxpo_excel_vw = [500, 0, 200, 206], dv_mail_service_excel_vw = [510, 220, 200, 225], dv_outlet_change_log_csv_vw = [510, 460, 200, 225], dv_ddd_outlet_history_csv_vw = [510, 690, 200, 225])
+ERROR:
+
+View 'dv_dit_file_tab_vw' not found
+
+Command: ALTER VIEW dv_soc_r6mtrx_calc_vw
+ CACHE FULL TIMETOLIVEINCACHE NOEXPIRE
+    DECLARE CACHE INDEX outletid_ind ON (outletid)
+ERROR:
+
+error modifying view: SQLException in DenodoStandardXAPoolDataSource:getConnection java.sql.SQLException: SQLException in DenodoStandardXAPoolDataSource:getConnection no connection available java.sql.SQLException: ORA-28001: the password has expired
+
+
+Command: ALTER VIEW dv_missing_volume_report_vw
+ CACHE FULL
+     BATCHSIZEINCACHE DEFAULT TIMETOLIVEINCACHE NOEXPIRE
+ERROR:
+
+error modifying view: SQLException in DenodoStandardXAPoolDataSource:getConnection java.sql.SQLException: SQLException in DenodoStandardXAPoolDataSource:getConnection no connection available java.sql.SQLException: ORA-28001: the password has expired
+
+
+Command: ALTER VIEW dv_fact_alig_nbrx_core_mth_vw
+ CACHE FULL
+     BATCHSIZEINCACHE DEFAULT TIMETOLIVEINCACHE NOEXPIRE
+ERROR:
+
+error modifying view: SQLException in DenodoStandardXAPoolDataSource:getConnection java.sql.SQLException: SQLException in DenodoStandardXAPoolDataSource:getConnection no connection available java.sql.SQLException: ORA-28001: the password has expired
+
+
+Command: ALTER VIEW dv_fact_alig_non_rtl_sls_mthly_vw
+ CACHE FULL
+     BATCHSIZEINCACHE DEFAULT TIMETOLIVEINCACHE NOEXPIRE
+ERROR:
+
+error modifying view: SQLException in DenodoStandardXAPoolDataSource:getConnection java.sql.SQLException: SQLException in DenodoStandardXAPoolDataSource:getConnection no connection available java.sql.SQLException: ORA-28001: the password has expired
+
+
+Command: ALTER VIEW dv_fact_alig_non_rtl_sls_wkly_vw
+ CACHE FULL
+     BATCHSIZEINCACHE DEFAULT TIMETOLIVEINCACHE NOEXPIRE
+ERROR:
+
+error modifying view: SQLException in DenodoStandardXAPoolDataSource:getConnection java.sql.SQLException: SQLException in DenodoStandardXAPoolDataSource:getConnection no connection available java.sql.SQLException: ORA-28001: the password has expired
+
+
+Command: ALTER VIEW dv_fact_alig_rtl_sls_mthly_vw
+ CACHE FULL
+     BATCHSIZEINCACHE DEFAULT TIMETOLIVEINCACHE NOEXPIRE
+ERROR:
+
+error modifying view: SQLException in DenodoStandardXAPoolDataSource:getConnection java.sql.SQLException: SQLException in DenodoStandardXAPoolDataSource:getConnection no connection available java.sql.SQLException: ORA-28001: the password has expired
+
+
+Command: ALTER VIEW dv_fact_alig_rtl_sls_wkly_vw
+ CACHE FULL
+     BATCHSIZEINCACHE DEFAULT TIMETOLIVEINCACHE NOEXPIRE
+ERROR:
+
+error modifying view: SQLException in DenodoStandardXAPoolDataSource:getConnection java.sql.SQLException: SQLException in DenodoStandardXAPoolDataSource:getConnection no connection available java.sql.SQLException: ORA-28001: the password has expired
+
+
+--------------------------------------------------------------------------------
+[JobStatistics ... #Runs: 281/281 #Errors: 33 #Warnings: 0]
+--------------------------------------------------------------------------------

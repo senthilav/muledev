@@ -1,0 +1,174 @@
+Info: begin batch execution
+Info: number of jobs: 32
+--------------------------------------------------------------------------------
+Command #7
+Statement: ALTER VIEW va_details_report_vw
+ CACHE FULL
+     BATCHSIZEINCACHE DEFAULT TIMETOLIVEINCACHE NOEXPIRE
+QUERY ERROR
+
+--------------------------------------------------------------------------------
+Command #10
+Statement: ALTER VIEW dit_summary_vw
+ CACHE FULL TIMETOLIVEINCACHE NOEXPIRE
+QUERY ERROR
+
+--------------------------------------------------------------------------------
+Command #13
+Statement: ALTER VIEW soc_details_report_vw
+ CACHE FULL TIMETOLIVEINCACHE NOEXPIRE
+QUERY ERROR
+
+--------------------------------------------------------------------------------
+Command #16
+Statement: ALTER VIEW added_outlet_report_vw
+ CACHE FULL
+     BATCHSIZEINCACHE DEFAULT TIMETOLIVEINCACHE NOEXPIRE
+QUERY ERROR
+
+--------------------------------------------------------------------------------
+Command #17
+Statement: CREATE OR REPLACE VIEW added_prescriber_vw FOLDER = '/business views/dit' AS SELECT dv_added_prescriber_final_vw.prescriberid AS prescriberid, dv_added_prescriber_final_vw.prescribername AS prescribername, dv_added_prescriber_final_vw.decile AS decile, dv_added_prescriber_final_vw.address AS address, dv_added_prescriber_final_vw.zip AS zip, dv_added_prescriber_final_vw.prescriberg360status AS prescriberg360status, dv_added_prescriber_final_vw.pdrpstatus AS pdrpstatus, dv_added_prescriber_final_vw.kaiserstatus AS kaiserstatus, dv_added_prescriber_final_vw.pedexclusion AS pedexclusion, dv_added_prescriber_final_vw.snapshotdate AS snapshotdate, dv_added_prescriber_final_vw.territoryid AS territoryid, dv_added_prescriber_final_vw.territory AS territory, dv_added_prescriber_final_vw.brandcode AS brandcode, dv_added_prescriber_final_vw.brandname AS brandname, dv_added_prescriber_final_vw.franchise AS franchise, dv_added_prescriber_final_vw.regionid AS regionid, dv_added_prescriber_final_vw.r...
+QUERY ERROR
+
+--------------------------------------------------------------------------------
+Command #18
+Statement: ALTER VIEW added_prescriber_vw
+ LAYOUT (dv_added_prescriber_final_vw = [20, 20, 236, 430])
+QUERY ERROR
+
+--------------------------------------------------------------------------------
+Command #19
+Statement: ALTER VIEW added_prescriber_vw
+ CACHE FULL TIMETOLIVEINCACHE NOEXPIRE
+QUERY ERROR
+
+--------------------------------------------------------------------------------
+Command #22
+Statement: ALTER VIEW missing_outlet_report_vw
+ CACHE FULL
+     BATCHSIZEINCACHE DEFAULT TIMETOLIVEINCACHE NOEXPIRE
+QUERY ERROR
+
+--------------------------------------------------------------------------------
+Command #25
+Statement: ALTER VIEW missing_prescriber_volume_vw
+ CACHE FULL TIMETOLIVEINCACHE NOEXPIRE
+QUERY ERROR
+
+--------------------------------------------------------------------------------
+Command #26
+Statement: CREATE OR REPLACE VIEW missing_prescriber_vw FOLDER = '/business views/dit' AS SELECT dv_missing_prescriber_final_vw.prescriberid AS prescriberid, dv_missing_prescriber_final_vw.prescribername AS prescribername, dv_missing_prescriber_final_vw.decile AS decile, dv_missing_prescriber_final_vw.address AS address, dv_missing_prescriber_final_vw.prescriberg360status AS prescriberg360status, dv_missing_prescriber_final_vw.pdrpstatus AS pdrpstatus, dv_missing_prescriber_final_vw.kaiserstatus AS kaiserstatus, dv_missing_prescriber_final_vw.pedexclusion AS pedexclusion, dv_missing_prescriber_final_vw.snapshotdate AS snapshotdate, dv_missing_prescriber_final_vw.territoryid AS territoryid, dv_missing_prescriber_final_vw.territory AS territory, dv_missing_prescriber_final_vw.brandcode AS brandcode, dv_missing_prescriber_final_vw.brandname AS brandname, dv_missing_prescriber_final_vw.franchise AS franchise, dv_missing_prescriber_final_vw.regionid AS regionid, dv_missing_prescriber_final_vw.region A...
+QUERY ERROR
+
+--------------------------------------------------------------------------------
+Command #27
+Statement: ALTER VIEW missing_prescriber_vw
+ LAYOUT (dv_missing_prescriber_final_vw = [20, 20, 246, 726])
+QUERY ERROR
+
+--------------------------------------------------------------------------------
+Command #28
+Statement: ALTER VIEW missing_prescriber_vw
+ CACHE FULL TIMETOLIVEINCACHE NOEXPIRE
+QUERY ERROR
+
+--------------------------------------------------------------------------------
+Command #31
+Statement: ALTER VIEW missing_volume_report_vw
+ CACHE FULL
+     BATCHSIZEINCACHE DEFAULT TIMETOLIVEINCACHE NOEXPIRE
+QUERY ERROR
+
+
+
+Command: ALTER VIEW va_details_report_vw
+ CACHE FULL
+     BATCHSIZEINCACHE DEFAULT TIMETOLIVEINCACHE NOEXPIRE
+ERROR:
+
+error modifying view: SQLException in DenodoStandardXAPoolDataSource:getConnection java.sql.SQLException: SQLException in DenodoStandardXAPoolDataSource:getConnection no connection available java.sql.SQLException: ORA-28001: the password has expired
+
+
+Command: ALTER VIEW dit_summary_vw
+ CACHE FULL TIMETOLIVEINCACHE NOEXPIRE
+ERROR:
+
+error modifying view: SQLException in DenodoStandardXAPoolDataSource:getConnection java.sql.SQLException: SQLException in DenodoStandardXAPoolDataSource:getConnection no connection available java.sql.SQLException: ORA-28001: the password has expired
+
+
+Command: ALTER VIEW soc_details_report_vw
+ CACHE FULL TIMETOLIVEINCACHE NOEXPIRE
+ERROR:
+
+error modifying view: SQLException in DenodoStandardXAPoolDataSource:getConnection java.sql.SQLException: SQLException in DenodoStandardXAPoolDataSource:getConnection no connection available java.sql.SQLException: ORA-28001: the password has expired
+
+
+Command: ALTER VIEW added_outlet_report_vw
+ CACHE FULL
+     BATCHSIZEINCACHE DEFAULT TIMETOLIVEINCACHE NOEXPIRE
+ERROR:
+
+error modifying view: SQLException in DenodoStandardXAPoolDataSource:getConnection java.sql.SQLException: SQLException in DenodoStandardXAPoolDataSource:getConnection no connection available java.sql.SQLException: ORA-28001: the password has expired
+
+
+Command: CREATE OR REPLACE VIEW added_prescriber_vw FOLDER = '/business views/dit' AS SELECT dv_added_prescriber_final_vw.prescriberid AS prescriberid, dv_added_prescriber_final_vw.prescribername AS prescribername, dv_added_prescriber_final_vw.decile AS decile, dv_added_prescriber_final_vw.address AS address, dv_added_prescriber_final_vw.zip AS zip, dv_added_prescriber_final_vw.prescriberg360status AS prescriberg360status, dv_added_prescriber_final_vw.pdrpstatus AS pdrpstatus, dv_added_prescriber_final_vw.kaiserstatus AS kaiserstatus, dv_added_prescriber_final_vw.pedexclusion AS pedexclusion, dv_added_prescriber_final_vw.snapshotdate AS snapshotdate, dv_added_prescriber_final_vw.territoryid AS territoryid, dv_added_prescriber_final_vw.territory AS territory, dv_added_prescriber_final_vw.brandcode AS brandcode, dv_added_prescriber_final_vw.brandname AS brandname, dv_added_prescriber_final_vw.franchise AS franchise, dv_added_prescriber_final_vw.regionid AS regionid, dv_added_prescriber_final_vw.region AS region, dv_added_prescriber_final_vw.areaid AS areaid, dv_added_prescriber_final_vw.area AS area, dv_added_prescriber_final_vw.nationid AS nationid, dv_added_prescriber_final_vw.nation AS nation, dv_added_prescriber_final_vw.geographyid AS geographyid, dv_added_prescriber_final_vw.geography AS geography, dv_added_prescriber_final_vw.retailsalesdate AS retailsalesdate, dv_added_prescriber_final_vw.trxbottles AS trxbottles, dv_added_prescriber_final_vw.trxcounts AS trxcounts, dv_added_prescriber_final_vw.nrxbottles AS nrxbottles, dv_added_prescriber_final_vw.nrxcounts AS nrxcounts, dv_added_prescriber_final_vw.nbrxcounts AS nbrxcounts, dv_added_prescriber_final_vw.frozenterritoryid AS frozenterritoryid, dv_added_prescriber_final_vw.callactivity AS callactivity, targetflag AS targetflag, description AS description, filename AS filename, imsprescriberid AS imsprescriberid FROM dv_added_prescriber_final_vw
+ERROR:
+
+View 'dv_added_prescriber_final_vw' not found
+
+Command: ALTER VIEW added_prescriber_vw
+ LAYOUT (dv_added_prescriber_final_vw = [20, 20, 236, 430])
+ERROR:
+
+View 'added_prescriber_vw' not found
+
+Command: ALTER VIEW added_prescriber_vw
+ CACHE FULL TIMETOLIVEINCACHE NOEXPIRE
+ERROR:
+
+View 'added_prescriber_vw' not found
+
+Command: ALTER VIEW missing_outlet_report_vw
+ CACHE FULL
+     BATCHSIZEINCACHE DEFAULT TIMETOLIVEINCACHE NOEXPIRE
+ERROR:
+
+error modifying view: SQLException in DenodoStandardXAPoolDataSource:getConnection java.sql.SQLException: SQLException in DenodoStandardXAPoolDataSource:getConnection no connection available java.sql.SQLException: ORA-28001: the password has expired
+
+
+Command: ALTER VIEW missing_prescriber_volume_vw
+ CACHE FULL TIMETOLIVEINCACHE NOEXPIRE
+ERROR:
+
+error modifying view: SQLException in DenodoStandardXAPoolDataSource:getConnection java.sql.SQLException: SQLException in DenodoStandardXAPoolDataSource:getConnection no connection available java.sql.SQLException: ORA-28001: the password has expired
+
+
+Command: CREATE OR REPLACE VIEW missing_prescriber_vw FOLDER = '/business views/dit' AS SELECT dv_missing_prescriber_final_vw.prescriberid AS prescriberid, dv_missing_prescriber_final_vw.prescribername AS prescribername, dv_missing_prescriber_final_vw.decile AS decile, dv_missing_prescriber_final_vw.address AS address, dv_missing_prescriber_final_vw.prescriberg360status AS prescriberg360status, dv_missing_prescriber_final_vw.pdrpstatus AS pdrpstatus, dv_missing_prescriber_final_vw.kaiserstatus AS kaiserstatus, dv_missing_prescriber_final_vw.pedexclusion AS pedexclusion, dv_missing_prescriber_final_vw.snapshotdate AS snapshotdate, dv_missing_prescriber_final_vw.territoryid AS territoryid, dv_missing_prescriber_final_vw.territory AS territory, dv_missing_prescriber_final_vw.brandcode AS brandcode, dv_missing_prescriber_final_vw.brandname AS brandname, dv_missing_prescriber_final_vw.franchise AS franchise, dv_missing_prescriber_final_vw.regionid AS regionid, dv_missing_prescriber_final_vw.region AS region, dv_missing_prescriber_final_vw.areaid AS areaid, dv_missing_prescriber_final_vw.area AS area, dv_missing_prescriber_final_vw.nationid AS nationid, dv_missing_prescriber_final_vw.nation AS nation, dv_missing_prescriber_final_vw.geographyid AS geographyid, dv_missing_prescriber_final_vw.geography AS geography, dv_missing_prescriber_final_vw.retailsalesdate AS retailsalesdate, dv_missing_prescriber_final_vw.trxbottles AS trxbottles, dv_missing_prescriber_final_vw.trxcounts AS trxcounts, dv_missing_prescriber_final_vw.nrxbottles AS nrxbottles, dv_missing_prescriber_final_vw.nrxcounts AS nrxcounts, dv_missing_prescriber_final_vw.zip AS zip, dv_missing_prescriber_final_vw.frozenterritoryid AS frozenterritoryid, dv_missing_prescriber_final_vw.callactivity AS callactivity, dv_missing_prescriber_final_vw.nbrxcounts AS nbrxcounts, dv_missing_prescriber_final_vw.targetflag AS targetflag, dv_missing_prescriber_final_vw.filename AS filename, dv_missing_prescriber_final_vw.description AS description, dv_missing_prescriber_final_vw.imsprescriberid AS imsprescriberid, frozenterritoryname AS frozenterritoryname FROM dv_missing_prescriber_final_vw
+ERROR:
+
+View 'dv_missing_prescriber_final_vw' not found
+
+Command: ALTER VIEW missing_prescriber_vw
+ LAYOUT (dv_missing_prescriber_final_vw = [20, 20, 246, 726])
+ERROR:
+
+View 'missing_prescriber_vw' not found
+
+Command: ALTER VIEW missing_prescriber_vw
+ CACHE FULL TIMETOLIVEINCACHE NOEXPIRE
+ERROR:
+
+View 'missing_prescriber_vw' not found
+
+Command: ALTER VIEW missing_volume_report_vw
+ CACHE FULL
+     BATCHSIZEINCACHE DEFAULT TIMETOLIVEINCACHE NOEXPIRE
+ERROR:
+
+error modifying view: SQLException in DenodoStandardXAPoolDataSource:getConnection java.sql.SQLException: SQLException in DenodoStandardXAPoolDataSource:getConnection no connection available java.sql.SQLException: ORA-28001: the password has expired
+
+
+--------------------------------------------------------------------------------
+[JobStatistics ... #Runs: 32/32 #Errors: 13 #Warnings: 0]
+--------------------------------------------------------------------------------
